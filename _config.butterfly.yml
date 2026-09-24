@@ -1,0 +1,107 @@
+# Butterfly 主题个性化配置（覆盖主题默认值）
+
+# 导航菜单
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+
+# 头像（用旧博客的头像）
+avatar:
+  img: /images/avstar.jpg
+  effect: true
+
+# 默认深色模式，并跟随系统设置
+display_mode: dark
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: 1
+
+# 首页副标题打字机效果
+subtitle:
+  enable: true
+  effect: true
+  sub: 记录技术、创造与探索
+
+# 代码块：Mac 风格 + 深色主题
+code_blocks:
+  theme: darker
+  macStyle: true
+  copy: true
+  language: true
+  shrink: none
+
+# 本地搜索（零成本，纯静态生成索引）
+search:
+  use: local_search
+  local_search:
+    preload: true
+    top_n_per_article: 3
+    unescape: false
+
+# 图片点击放大
+lightbox: fancybox
+
+# 鼠标点击烟花特效
+fireworks:
+  enable: true
+  zIndex: 9999
+  mobile: false
+
+# 顶部加载进度条
+preloader:
+  enable: true
+  source: 2
+
+# 页面切换动画
+enter_transitions: true
+
+# 页脚
+footer:
+  owner:
+    enable: true
+    since: 2018
+  copyright:
+    enable: true
+    version: true
+
+# 侧边栏
+aside:
+  enable: true
+  mobile: true
+  position: right
+  card_announcement:
+    enable: true
+    content: 欢迎来到我的博客
+  card_recent_post:
+    enable: true
+    limit: 5
+
+# 文章版权声明
+post_copyright:
+  enable: true
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# 相关文章推荐
+related_post:
+  enable: true
+  limit: 6
+
+# 目录
+toc:
+  post: true
+  number: true
+  expand: true
+  scroll_percent: true
+
+# 阅读模式
+readmode: true
+
+# 分享
+share:
+  use: sharejs
+  sharejs:
+    sites: weibo,qq,wechat,twitter,facebook
