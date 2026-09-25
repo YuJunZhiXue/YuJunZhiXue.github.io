@@ -15,42 +15,44 @@ menu:
   友链: /links/ || fas fa-link
   音乐: /music/ || fas fa-music
 
-# ==================== 配色（赛博暗夜风）====================
+# ==================== 配色（古风·水墨朱砂）====================
 theme_color:
   enable: true
-  main: "#00ffd5"
-  paginator: "#00ffd5"
-  button_hover: "#FF7242"
-  text_selection: "#00ffd5"
-  link_color: "#00e0c4"
-  meta_color: "#858585"
-  hr_color: "#00ffd5"
-  code_foreground: "#F47466"
-  code_background: "rgba(27, 31, 35, .05)"
-  toc_color: "#00ffd5"
-  blockquote_padding_color: "#00ffd5"
-  blockquote_background_color: "#00ffd5"
-  scrollbar_color: "#00ffd5"
-  meta_theme_color_light: "ffffff"
-  meta_theme_color_dark: "#0d0d0d"
+  main: "#8c3b2e"
+  paginator: "#8c3b2e"
+  button_hover: "#a8351f"
+  text_selection: "#8c3b2e"
+  link_color: "#5a4a3a"
+  meta_color: "#8a7a68"
+  hr_color: "#b0a48e"
+  code_foreground: "#8c3b2e"
+  code_background: "rgba(140, 59, 46, .06)"
+  toc_color: "#8c3b2e"
+  blockquote_padding_color: "#8c3b2e"
+  blockquote_background_color: "#8c3b2e"
+  scrollbar_color: "#b0a48e"
+  meta_theme_color_light: "#f5f1e8"
+  meta_theme_color_dark: "#14110e"
 
 # ==================== 字体（思源）====================
 blog_title_font:
-  font_link: https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.18/700.css
-  font_family: 'Noto Sans SC, "Microsoft YaHei", sans-serif'
+  font_link: https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/700.css
+  font_family: 'Noto Serif SC, "Songti SC", "SimSun", serif'
 
 font:
   global_font_size: 16px
   code_font_size: 14px
-  font_family: 'Noto Sans SC, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif'
-  code_font_family: '"JetBrains Mono", consolas, Menlo, monospace, "Noto Sans SC", sans-serif'
+  font_family: 'Noto Serif SC, "Songti SC", "SimSun", "STSong", serif'
+  code_font_family: '"JetBrains Mono", consolas, Menlo, monospace, serif'
 
-# 全站额外注入：思源黑体完整字重（覆盖中文正文）
+# 全站额外注入：古风皮肤 + 思源宋体 + 音乐播放器
 inject:
   head:
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/400.css">
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/500.css">
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/700.css">
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.18/400.css">
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.18/500.css">
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/600.css">
+    - <link rel="stylesheet" href="/css/custom-gufeng.css">
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
   bottom:
     - <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
@@ -63,37 +65,28 @@ avatar:
   img: /images/avstar.jpg
   effect: true
 
-# 默认横幅（页面未单独设置时用）
-default_top_img: /images/683017.jpg
+# 各页面横幅（古风留白，不强行塞图，用主题默认即可）
+index_img:
+archive_img:
+tag_img:
+category_img:
 
-# 各页面横幅
-index_img: /images/2020-09-01_114756.png
-archive_img: /images/960489.png
-tag_img: /images/image-20210531173616231.png
-category_img: /images/template-engine.png
+# 页脚留白
+footer_img: false
 
-# 页脚背景图
-footer_img: /images/legacy.png
-
-# 背景图（深色模式配合赛博风）
+# 背景留白（古风：不堆图，靠 CSS 水墨晕染，见 custom-gufeng）
 background:
-  - https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/IMG_3527.jpg
-  - /images/683017.jpg
 
-# 封面图池（文章无封面时随机抽一张）
+# 封面图池（仅文章无封面时兜底，古风水墨意境）
 cover:
   index_enable: true
   aside_enable: true
   archives_enable: true
   default_cover:
-    - /images/2020-09-01_114756.png
-    - /images/2020-09-01_115205.png
-    - /images/2020-09-01_140055.png
     - /images/683017.jpg
     - /images/960489.png
     - /images/legacy.png
     - /images/hexo.jpg
-    - /images/avstar.jpg
 
 error_img:
   flink: /images/avstar.jpg
@@ -122,8 +115,8 @@ hr_icon:
   icon: '\f0e7'
   icon_top: -10px
 
-# ==================== 深色模式 ====================
-display_mode: dark
+# ==================== 默认显示模式 ====================
+display_mode: light
 darkmode:
   enable: true
   button: true
@@ -164,19 +157,17 @@ code_blocks:
   shrink: none
   word_wrap: false
 
-# ==================== 背景动效 ====================
-# 粒子丝带
+# ==================== 背景动效（古风：静态留白，关掉线条粒子）====================
 canvas_fluttering_ribbon:
-  enable: true
+  enable: false
   mobile: false
 
-# canvas-nest 线条背景
 canvas_nest:
-  enable: true
-  color: '0,255,213'
-  opacity: 0.7
+  enable: false
+  color: '140,59,46'
+  opacity: 0.5
   zIndex: -1
-  count: 99
+  count: 60
   mobile: false
 
 # ==================== 鼠标点击特效 ====================

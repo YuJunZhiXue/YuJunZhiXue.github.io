@@ -1,0 +1,226 @@
+/* 古风皮肤：水墨朱砂 —— 通过 inject 注入，覆盖主题默认样式 */
+
+/* ============ 浅色模式（宣纸底）============ */
+:root {
+  --card-bg: #f5f1e8;
+  --font-color: #2b2622;
+  --default-text-color: #2b2622;
+  --theme-color: #8c3b2e;
+  --theme-paginator-color: #8c3b2e;
+  --theme-text-selection-color: #8c3b2e;
+  --theme-link-color: #5a4a3a;
+  --theme-meta-color: #8a7a68;
+  --theme-hr-color: #b0a48e;
+  --theme-toc-color: #8c3b2e;
+  --blockquote-padding-color: #8c3b2e;
+  --blockquote-background-color: rgba(140,59,46,.08);
+  --scrollbar-color: #b0a48e;
+}
+
+/* 深色模式：浓墨底 */
+[data-theme="dark"] {
+  --card-bg: #1a1714;
+  --font-color: #d8d0c4;
+  --default-text-color: #d8d0c4;
+  --theme-color: #c9583f;
+  --theme-paginator-color: #c9583f;
+  --theme-text-selection-color: #c9583f;
+  --theme-link-color: #c8b49a;
+  --theme-meta-color: #9a8e7d;
+  --theme-hr-color: #4a4238;
+  --theme-toc-color: #c9583f;
+  --blockquote-padding-color: #c9583f;
+  --blockquote-background-color: rgba(201,88,63,.1);
+  --scrollbar-color: #4a4238;
+}
+
+/* ============ 宣纸底 + 水墨晕染（纯 CSS）============ */
+#body-wrap {
+  background:
+    radial-gradient(ellipse 700px 500px at 85% 15%, rgba(140,59,46,.05), transparent 60%),
+    radial-gradient(ellipse 900px 700px at 10% 90%, rgba(60,52,44,.07), transparent 55%),
+    radial-gradient(ellipse 1100px 800px at 50% 50%, rgba(70,62,52,.04), transparent 70%),
+    var(--card-bg);
+}
+
+[data-theme="dark"] #body-wrap {
+  background:
+    radial-gradient(ellipse 700px 500px at 85% 15%, rgba(201,88,63,.06), transparent 60%),
+    radial-gradient(ellipse 900px 700px at 10% 90%, rgba(200,180,154,.04), transparent 55%),
+    radial-gradient(ellipse 1100px 800px at 50% 50%, rgba(200,180,154,.02), transparent 70%),
+    #14110e;
+}
+
+/* 宣纸纤维纹理（SVG noise，内联无外链）*/
+#body-wrap::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+}
+
+/* ============ 全局宋体 ============ */
+#body-wrap,
+#body-wrap * {
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", "STSong", serif !important;
+}
+
+/* 代码块保留等宽，不跟着变宋体 */
+figure.highlight,
+pre,
+code,
+#article-container .code-area,
+.aplayer *,
+kbd {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, Menlo, monospace !important;
+}
+
+/* ============ 标题：墨笔风 ============ */
+#article-container .post-content h1,
+#article-container .post-content h2,
+#article-container .post-content h3,
+#article-container .post-content h4 {
+  font-weight: 700;
+  letter-spacing: .06em;
+  border-bottom: 1px solid rgba(140,59,46,.25);
+}
+#article-container .post-content h1:before,
+#article-container .post-content h2:before {
+  color: #8c3b2e;
+}
+[data-theme="dark"] #article-container .post-content h1:before,
+[data-theme="dark"] #article-container .post-content h2:before {
+  color: #c9583f;
+}
+
+/* ============ 导航栏 ============ */
+#nav-header,
+.navbar {
+  background: rgba(245,241,232,.85) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(140,59,46,.15);
+}
+[data-theme="dark"] #nav-header,
+[data-theme="dark"] .navbar {
+  background: rgba(20,17,14,.85) !important;
+  border-bottom: 1px solid rgba(201,88,63,.2);
+}
+#nav .site-page,
+.navbar .nav-links a {
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+/* ============ 卡片：纸感 ============ */
+#aside-content .card-widget,
+.layout-pages .card-page,
+#pagination {
+  background: rgba(255,253,248,.6);
+  border: 1px solid rgba(140,59,46,.12);
+  box-shadow: none;
+}
+[data-theme="dark"] #aside-content .card-widget,
+[data-theme="dark"] .layout-pages .card-page,
+[data-theme="dark"] #pagination {
+  background: rgba(30,26,22,.6);
+  border: 1px solid rgba(201,88,63,.15);
+}
+
+/* ============ 文章页 ============ */
+#article-container .post-content {
+  line-height: 2.1;
+  letter-spacing: .02em;
+}
+
+/* 引用块：像古书夹注 */
+blockquote {
+  border-left: 3px solid #8c3b2e !important;
+  background: rgba(140,59,46,.05) !important;
+  font-style: normal;
+}
+[data-theme="dark"] blockquote {
+  border-left: 3px solid #c9583f !important;
+  background: rgba(201,88,63,.07) !important;
+}
+
+/* ============ 首页文章卡片 ============ */
+#recent-posts .recent-post-item {
+  background: rgba(255,253,248,.75);
+  border: 1px solid rgba(140,59,46,.12);
+  box-shadow: none;
+  transition: all .3s ease;
+}
+#recent-posts .recent-post-item:hover {
+  border-color: rgba(140,59,46,.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(60,52,44,.08);
+}
+[data-theme="dark"] #recent-posts .recent-post-item {
+  background: rgba(30,26,22,.75);
+  border: 1px solid rgba(201,88,63,.15);
+}
+[data-theme="dark"] #recent-posts .recent-post-item:hover {
+  border-color: rgba(201,88,63,.45);
+  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+
+/* ============ 按钮/标签 ============ */
+.button--primary,
+button.btn-primary,
+#aside-content .card-info .card-info-btn {
+  background: #8c3b2e !important;
+  border-color: #8c3b2e !important;
+}
+.button--primary:hover,
+button.btn-primary:hover {
+  background: #6f2e23 !important;
+  border-color: #6f2e23 !important;
+}
+[data-theme="dark"] .button--primary,
+[data-theme="dark"] button.btn-primary {
+  background: #c9583f !important;
+  border-color: #c9583f !important;
+}
+
+/* 标签云：朱砂点缀 */
+.tag-cloud-list a {
+  border: 1px solid rgba(140,59,46,.3) !important;
+  background: rgba(140,59,46,.06) !important;
+}
+.tag-cloud-list a:hover {
+  background: rgba(140,59,46,.15) !important;
+}
+
+/* ============ 滚动条 ============ */
+::-webkit-scrollbar-thumb {
+  background: rgba(140,59,46,.4);
+  border-radius: 4px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(201,88,63,.4);
+}
+
+/* ============ 页脚 ============ */
+#footer {
+  background: rgba(60,52,44,.03) !important;
+  border-top: 1px solid rgba(140,59,46,.15);
+}
+[data-theme="dark"] #footer {
+  background: rgba(200,180,154,.03) !important;
+  border-top: 1px solid rgba(201,88,63,.15);
+}
+
+/* 选中文字色 */
+::selection {
+  background: rgba(140,59,46,.2);
+  color: inherit;
+}
+
+/* ============ 移动端适配 ============ */
+@media (max-width: 768px) {
+  #body-wrap::before { opacity: .3; }
+  #article-container .post-content { letter-spacing: 0; }
+}
