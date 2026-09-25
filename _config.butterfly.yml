@@ -36,7 +36,7 @@ theme_color:
 
 # ==================== 字体（思源）====================
 blog_title_font:
-  font_link: https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/700.css
+  font_link: /fonts/noto-serif-sc-700.css
   font_family: 'Noto Serif SC, "Songti SC", "SimSun", serif'
 
 font:
@@ -45,18 +45,17 @@ font:
   font_family: 'Noto Serif SC, "Songti SC", "SimSun", "STSong", serif'
   code_font_family: '"JetBrains Mono", consolas, Menlo, monospace, serif'
 
-# 全站额外注入：古风皮肤 + 思源宋体 + 音乐播放器
+# 全站注入：全部本地化，零外链 CDN（国内国外都快）
 inject:
   head:
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/400.css">
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/500.css">
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.18/700.css">
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.18/400.css">
+    - <link rel="stylesheet" href="/fonts/noto-serif-sc-400.css">
+    - <link rel="stylesheet" href="/fonts/noto-serif-sc-500.css">
+    - <link rel="stylesheet" href="/fonts/noto-sans-sc-400.css">
     - <link rel="stylesheet" href="/css/custom-gufeng.css">
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
   bottom:
-    - <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    - <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+    - <script src="/fonts/aplayer-APlayer.min.js"></script>
+    - <script src="/fonts/meting-Meting.min.js"></script>
 
 # ==================== 图片资源 ====================
 favicon: /images/avstar.jpg
