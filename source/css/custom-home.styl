@@ -99,7 +99,7 @@
 }
 .recent-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px -8px rgba(60, 30, 20, .3);
+  box-shadow: 0 8px 18px -8px rgba(7, 17, 27, .03);
   border-color: rgba(73, 177, 245, .35);
 }
 [data-theme="dark"] .recent-item {
@@ -212,7 +212,7 @@
 }
 .cat-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px -10px rgba(60, 30, 20, .35);
+  box-shadow: 0 10px 22px -10px rgba(7, 17, 27, .035);
   border-color: rgba(73, 177, 245, .4);
 }
 [data-theme="dark"] .cat-card {
@@ -251,29 +251,26 @@
   z-index: 1;
 }
 
-/* ===== 5. 文章卡片重设计（Heo 风格：大圆角 + 毛玻璃 + 悬浮发光）===== */
+/* ===== 5. 文章卡片（仿 onektas：无边框纯白 + 冷色轻阴影 + 8px 圆角）===== */
 #recent-posts .recent-post-item {
-  border-radius: 1rem !important;
-  border: 1px solid rgba(73, 177, 245, .12) !important;
-  background: var(--paper) !important;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px -4px rgba(60, 30, 20, .15) !important;
-  transition: all .3s cubic-bezier(.4, 0, .2, 1) !important;
+  border-radius: 8px !important;
+  border: none !important;
+  background: #fff !important;
+  box-shadow: 0 3px 8px 6px rgba(7, 17, 27, .05) !important;
+  transition: box-shadow .3s ease, transform .3s ease !important;
   overflow: hidden;
   margin-bottom: 1.2rem !important;
 }
 #recent-posts .recent-post-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -12px rgba(60, 30, 20, .28) !important;
-  border-color: rgba(73, 177, 245, .3) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px 8px rgba(7, 17, 27, .09) !important;
 }
 [data-theme="dark"] #recent-posts .recent-post-item {
-  background: var(--paper) !important;
-  border-color: rgba(107, 192, 247, .12) !important;
+  background: #121212 !important;
+  box-shadow: 0 3px 8px 6px rgba(0, 0, 0, .3) !important;
 }
 [data-theme="dark"] #recent-posts .recent-post-item:hover {
-  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, .5) !important;
-  border-color: rgba(107, 192, 247, .3) !important;
+  box-shadow: 0 6px 16px 8px rgba(0, 0, 0, .45) !important;
 }
 /* 封面圆角 */
 #recent-posts .post_cover {

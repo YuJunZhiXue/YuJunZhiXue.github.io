@@ -121,16 +121,17 @@ figure.highlight, pre, code, .aplayer *, kbd {
 #aside-content .card-widget,
 .layout-pages .card-page,
 #pagination,
-#article-container,
-#recent-posts .recent-post-item {
-  background: var(--paper);
+#article-container {
+  background: #fff;
   border: none;
   box-shadow: var(--shadow-card);
-  transition: box-shadow .3s ease, transform .3s ease;
 }
-#recent-posts .recent-post-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lift);
+[data-theme="dark"] #aside-content .card-widget,
+[data-theme="dark"] .layout-pages .card-page,
+[data-theme="dark"] #pagination,
+[data-theme="dark"] #article-container {
+  background: #121212;
+  box-shadow: 0 3px 8px 6px rgba(0,0,0,.3);
 }
 /* sticky 粘性区限高保持 */
 #aside-content .sticky_layout {

@@ -31,7 +31,7 @@ theme_color:
   meta_color: "#8a7a68"
   hr_color: "#b0a48e"
   code_foreground: "#49b1f5"
-  code_background: "rgba(140, 59, 46, .06)"
+  code_background: "rgba(73, 177, 245, .06)"
   toc_color: "#49b1f5"
   blockquote_padding_color: "#49b1f5"
   blockquote_background_color: "rgba(73,177,245,.1)"
