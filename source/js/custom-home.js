@@ -16,6 +16,7 @@
   /* ===== 1. 问候语打字机 ===== */
   function initGreeting() {
     if (!isHome) return;
+    // 问候语插在 recent-posts 内部顶部（不能插到 .layout 里，会和侧边栏挤一行）
     var hero = document.createElement("div");
     hero.className = "hero-greeting";
     hero.innerHTML =
@@ -24,9 +25,10 @@
 
     var recent = document.getElementById("recent-posts");
     var siteInfo = document.querySelector(".site-info, #page-header");
-    var anchor = recent || siteInfo;
-    if (anchor && anchor.parentNode) {
-      anchor.parentNode.insertBefore(hero, anchor);
+    if (recent) {
+      recent.insertBefore(hero, recent.firstChild);
+    } else if (siteInfo && siteInfo.parentNode) {
+      siteInfo.parentNode.insertBefore(hero, siteInfo.nextSibling);
     } else {
       document.body.insertBefore(hero, document.body.firstChild);
       return;
@@ -106,7 +108,8 @@
       scroll.appendChild(a);
     });
 
-    recent.parentNode.insertBefore(strip, recent);
+    // 插到 recent-posts 内部最前面（不是 .layout 里，避免和侧边栏挤一行）
+    recent.insertBefore(strip, recent.firstChild);
   }
 
   /* 首页标签云 */

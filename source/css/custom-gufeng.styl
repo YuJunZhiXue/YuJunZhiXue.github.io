@@ -113,6 +113,22 @@ kbd {
   font-weight: 600;
   letter-spacing: .08em;
 }
+/* 导航下划线：主题默认 100% 全宽太长，改 45% 居中 + 朱砂色 */
+#nav .site-page:not(.child)::after {
+  left: 50% !important;
+  width: 0 !important;
+  height: 2px !important;
+  background-color: rgba(140,59,46,.7) !important;
+  transform: translateX(-50%);
+  transition: width .3s ease-in-out !important;
+}
+#nav .site-page:not(.child):hover::after,
+#nav .site-page:not(.child).select::after {
+  width: 45% !important;
+}
+[data-theme="dark"] #nav .site-page:not(.child)::after {
+  background-color: rgba(201,88,63,.75) !important;
+}
 
 /* ============ 卡片：纸感 ============ */
 #aside-content .card-widget,
