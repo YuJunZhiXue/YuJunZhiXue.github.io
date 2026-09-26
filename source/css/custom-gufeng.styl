@@ -215,14 +215,29 @@ button.btn-primary:hover {
 [data-theme="dark"] ::-webkit-scrollbar-track { background-color: rgba(128,200,248,.12); }
 
 /* ============ 页脚 ============ */
+/* 主题 #footer>* 用 --light-grey(#eee) 配深色页脚，白底下不可见，强制深字 */
 #footer {
   background: #fff !important;
   border-top: none;
-  color: var(--ink-soft);
+  color: #4c4948 !important;
+}
+#footer > *,
+#footer > * > *,
+#footer a,
+#footer span,
+#footer div {
+  color: #4c4948 !important;
 }
 [data-theme="dark"] #footer {
   background: #121212 !important;
-  color: var(--ink-soft);
+  color: #9a9a9a !important;
+}
+[data-theme="dark"] #footer > *,
+[data-theme="dark"] #footer > * > *,
+[data-theme="dark"] #footer a,
+[data-theme="dark"] #footer span,
+[data-theme="dark"] #footer div {
+  color: #9a9a9a !important;
 }
 
 /* 选中文字：蓝底白字 */
