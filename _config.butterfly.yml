@@ -94,8 +94,8 @@ category_img:
 # 页脚留白
 footer_img: false
 
-# 背景留白（古风：不堆图，靠 CSS 水墨晕染，见 custom-gufeng）
-background:
+# 全站背景图（仿 onektas.top，fixed+cover）
+background: /images/bg.webp
 
 # 封面图池（仅文章无封面时兜底，古风水墨意境）
 cover:
