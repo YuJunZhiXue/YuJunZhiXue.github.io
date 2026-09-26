@@ -134,6 +134,12 @@ figure.highlight, pre, code, .aplayer *, kbd {
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   padding-right: 2px;
+  display: flex;
+  flex-direction: column;
+}
+/* flex 容器限高时子项默认收缩会被压扁，禁止收缩保持自然高度 */
+#aside-content .sticky_layout > .card-widget {
+  flex-shrink: 0;
 }
 #aside-content .sticky_layout::-webkit-scrollbar { width: 4px; }
 #aside-content .sticky_layout::-webkit-scrollbar-thumb {
