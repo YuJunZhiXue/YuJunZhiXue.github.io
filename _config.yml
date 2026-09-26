@@ -98,6 +98,11 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: butterfly
 
+# 文章加密（hexo-blog-encrypt）
+# 用法：文章 front-matter 加 password: 你的密码 即可加密该文章
+encrypt:
+  enable: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:

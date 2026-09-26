@@ -1,0 +1,57 @@
+/* ===== GitHub 热力图 ===== */
+.card-heatmap {
+  padding: 1rem;
+}
+.heatmap-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-x: auto;
+  padding-bottom: .3rem;
+}
+.heatmap-row {
+  display: flex;
+  gap: 2px;
+}
+.hm-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex: none;
+  display: inline-block;
+}
+.hm-empty {
+  background: transparent;
+}
+.hm-l0 { background: rgba(140, 59, 46, .08); }
+.hm-l1 { background: rgba(140, 59, 46, .3); }
+.hm-l2 { background: rgba(140, 59, 46, .5); }
+.hm-l3 { background: rgba(140, 59, 46, .72); }
+.hm-l4 { background: rgba(140, 59, 46, .95); }
+[data-theme="dark"] .hm-l0 { background: rgba(201, 88, 63, .1); }
+[data-theme="dark"] .hm-l1 { background: rgba(201, 88, 63, .3); }
+[data-theme="dark"] .hm-l2 { background: rgba(201, 88, 63, .5); }
+[data-theme="dark"] .hm-l3 { background: rgba(201, 88, 63, .72); }
+[data-theme="dark"] .hm-l4 { background: rgba(201, 88, 63, .95); }
+.heatmap-summary {
+  margin-top: .7rem;
+  font-size: .75rem;
+  opacity: .75;
+  text-align: center;
+}
+.heatmap-summary b {
+  color: var(--theme-color);
+}
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  margin-top: .4rem;
+  font-size: .65rem;
+  opacity: .55;
+}
+.heatmap-legend .hm-cell {
+  width: 10px;
+  height: 10px;
+}
