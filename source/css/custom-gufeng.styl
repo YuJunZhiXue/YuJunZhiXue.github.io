@@ -158,6 +158,24 @@ kbd {
 }
 
 /* ============ 卡片：实色纸感 ============ */
+/* sticky 粘性区限高：内部可滚，避免粘住时高出视口与后续卡片重叠 */
+#aside-content .sticky_layout {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding-right: 2px;
+  scrollbar-width: thin;
+}
+#aside-content .sticky_layout::-webkit-scrollbar {
+  width: 4px;
+}
+#aside-content .sticky_layout::-webkit-scrollbar-thumb {
+  background: rgba(140,59,46,.25);
+  border-radius: 2px;
+}
+[data-theme="dark"] #aside-content .sticky_layout::-webkit-scrollbar-thumb {
+  background: rgba(201,88,63,.3);
+}
+
 #aside-content .card-widget,
 .layout-pages .card-page,
 #pagination {
