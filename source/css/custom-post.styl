@@ -1,0 +1,328 @@
+/* ============================================
+ * 批次3：文章页组件
+ * 1. 阅读进度条
+ * 2. 点赞/打赏/上下篇导航
+ * 3. 代码块折叠 + 语言标签 + 复制按钮
+ * 4. 手机悬浮工具栏
+ * 5. 图片全屏查看
+ * 6. TOC 悬浮高亮
+ * ============================================ */
+
+/* ===== 1. 阅读进度条（顶部朱砂条）===== */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  z-index: 1101;
+  background: linear-gradient(90deg, #8c3b2e, #a8351f, #c9583f);
+  box-shadow: 0 0 8px rgba(140, 59, 46, .5);
+  transition: width .1s linear;
+}
+[data-theme="dark"] .read-progress {
+  background: linear-gradient(90deg, #c9583f, #e07550);
+  box-shadow: 0 0 8px rgba(201, 88, 63, .5);
+}
+
+/* ===== 2. 文章底部操作区 ===== */
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: .8rem;
+  background: rgba(140, 59, 46, .03);
+  border: 1px solid rgba(140, 59, 46, .12);
+}
+[data-theme="dark"] .post-actions {
+  background: rgba(201, 88, 63, .04);
+  border-color: rgba(201, 88, 63, .15);
+}
+.post-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 59, 46, .3);
+  background: transparent;
+  color: #8c3b2e;
+  font-size: .85rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all .25s ease;
+  user-select: none;
+}
+.post-action-btn:hover {
+  background: rgba(140, 59, 46, .08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px -4px rgba(140, 59, 46, .4);
+}
+.post-action-btn.liked {
+  background: rgba(140, 59, 46, .12);
+  border-color: var(--theme-color);
+}
+[data-theme="dark"] .post-action-btn {
+  color: #e07550;
+  border-color: rgba(201, 88, 63, .3);
+}
+[data-theme="dark"] .post-action-btn:hover {
+  background: rgba(201, 88, 63, .1);
+}
+[data-theme="dark"] .post-action-btn.liked {
+  background: rgba(201, 88, 63, .15);
+}
+.post-action-btn .like-count {
+  font-weight: 700;
+}
+
+/* 上下篇导航卡片 */
+.post-nav-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.post-nav-card {
+  display: block;
+  padding: .9rem 1rem;
+  border-radius: .8rem;
+  border: 1px solid rgba(140, 59, 46, .15);
+  background: rgba(140, 59, 46, .03);
+  text-decoration: none !important;
+  transition: all .25s ease;
+  min-width: 0;
+}
+.post-nav-card:hover {
+  border-color: rgba(140, 59, 46, .4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -6px rgba(140, 59, 46, .35);
+}
+[data-theme="dark"] .post-nav-card {
+  border-color: rgba(201, 88, 63, .15);
+  background: rgba(201, 88, 63, .04);
+}
+[data-theme="dark"] .post-nav-card:hover {
+  border-color: rgba(201, 88, 63, .4);
+}
+.post-nav-card .nav-label {
+  font-size: .72rem;
+  opacity: .6;
+  margin-bottom: .3rem;
+}
+.post-nav-card .nav-title {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--theme-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.post-nav-card.next {
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .post-nav-cards {
+    grid-template-columns: 1fr;
+  }
+  .post-nav-card.next {
+    text-align: left;
+  }
+}
+
+/* ===== 3. 代码块美化 ===== */
+#article-container figure.highlight {
+  margin: 1rem 0;
+  border-radius: .6rem;
+  overflow: hidden;
+  border: 1px solid rgba(140, 59, 46, .15);
+}
+#article-container figure.highlight .code-lang {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .4rem .8rem;
+  background: rgba(140, 59, 46, .06);
+  border-bottom: 1px solid rgba(140, 59, 46, .12);
+  font-size: .72rem;
+  color: var(--font-color);
+  opacity: .8;
+}
+[data-theme="dark"] #article-container figure.highlight .code-lang {
+  background: rgba(201, 88, 63, .08);
+  border-bottom-color: rgba(201, 88, 63, .15);
+}
+/* macOS 圆点 */
+.code-lang::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c94f4f;
+  box-shadow: 12px 0 0 #c9a94f, 24px 0 0 #4f9e6f;
+  flex: none;
+}
+.code-lang .lang-name {
+  margin-left: 1.2rem;
+}
+/* 折叠按钮 */
+.code-toggle {
+  margin-left: auto;
+  padding: .1rem .5rem;
+  font-size: .68rem;
+  border-radius: .35rem;
+  border: 1px solid rgba(140, 59, 46, .3);
+  background: transparent;
+  color: var(--theme-color);
+  cursor: pointer;
+  flex: none;
+}
+.code-toggle:hover {
+  background: rgba(140, 59, 46, .08);
+}
+[data-theme="dark"] .code-toggle {
+  border-color: rgba(201, 88, 63, .3);
+}
+[data-theme="dark"] .code-toggle:hover {
+  background: rgba(201, 88, 63, .1);
+}
+/* 折叠状态：隐藏代码体 */
+figure.highlight.collapsed .code-container,
+figure.highlight.collapsed table {
+  display: none;
+}
+figure.highlight.collapsed {
+  border-radius: .6rem;
+}
+/* 复制按钮 */
+.copy-btn {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+  z-index: 2;
+  padding: .15rem .5rem;
+  font-size: .68rem;
+  border-radius: .35rem;
+  border: 1px solid rgba(140, 59, 46, .3);
+  background: rgba(255, 253, 248, .85);
+  color: var(--theme-color);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s;
+}
+figure.highlight {
+  position: relative;
+}
+figure.highlight:hover .copy-btn {
+  opacity: 1;
+}
+.copy-btn.copied {
+  opacity: 1;
+  background: rgba(90, 158, 111, .15);
+  border-color: #5a9e6f;
+  color: #5a9e6f;
+}
+
+/* ===== 4. 手机悬浮工具栏 ===== */
+.mobile-toolbar {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  gap: .3rem;
+  padding: .35rem;
+  border-radius: 999px;
+  background: rgba(245, 241, 232, .92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(140, 59, 46, .2);
+  box-shadow: 0 8px 24px -8px rgba(60, 30, 20, .35);
+}
+[data-theme="dark"] .mobile-toolbar {
+  background: rgba(26, 23, 20, .92);
+  border-color: rgba(201, 88, 63, .25);
+}
+.mobile-toolbar .tb-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--font-color);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background .2s;
+}
+.mobile-toolbar .tb-btn:hover,
+.mobile-toolbar .tb-btn.active {
+  background: rgba(140, 59, 46, .1);
+  color: var(--theme-color);
+}
+[data-theme="dark"] .mobile-toolbar .tb-btn:hover,
+[data-theme="dark"] .mobile-toolbar .tb-btn.active {
+  background: rgba(201, 88, 63, .15);
+}
+@media (max-width: 768px) {
+  .mobile-toolbar {
+    display: flex;
+  }
+  /* 底部留白，别遮内容 */
+  #footer {
+    padding-bottom: 4rem;
+  }
+}
+
+/* ===== 5. 图片全屏查看 ===== */
+.img-viewer-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 17, 14, .9);
+  backdrop-filter: blur(4px);
+  cursor: zoom-out;
+  animation: fade-in .2s ease;
+}
+.img-viewer-mask img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: .5rem;
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, .7);
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== 6. TOC 悬浮高亮 ===== */
+#aside-content .toc-link {
+  position: relative;
+  transition: all .2s ease;
+}
+#aside-content .toc-link.toc-active {
+  color: var(--theme-color) !important;
+  font-weight: 700;
+}
+#aside-content .toc-link.toc-active::before {
+  content: "";
+  position: absolute;
+  left: -.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  border-radius: 2px;
+  background: var(--theme-color);
+}
