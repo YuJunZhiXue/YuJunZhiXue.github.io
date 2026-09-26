@@ -52,10 +52,14 @@ inject:
     - <link rel="stylesheet" href="/fonts/noto-serif-sc-500.css">
     - <link rel="stylesheet" href="/fonts/noto-sans-sc-400.css">
     - <link rel="stylesheet" href="/css/custom-gufeng.css">
+    - <link rel="stylesheet" href="/css/custom-atmosphere.css">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
+    - <script src="/fonts/pace-js.min.js"></script>
   bottom:
     - <script src="/fonts/aplayer-APlayer.min.js"></script>
     - <script src="/fonts/meting-Meting.min.js"></script>
+    - <script src="/js/custom-atmosphere.js"></script>
+    - <script>document.addEventListener("DOMContentLoaded",function(){var f=document.getElementById("footer-wrap");if(f&&!f.querySelector(".footer-poem")){var p=document.createElement("div");p.className="footer-poem";p.innerHTML="纸上得来终觉浅，绝知此事要躬行<span class='poem-title'>—— 陆游《冬夜读书示子聿》</span>";f.insertBefore(p,f.firstChild);}});</script>
 
 # ==================== 图片资源 ====================
 favicon: /images/avstar.jpg
@@ -203,12 +207,12 @@ preloader:
 
 enter_transitions: true
 
-# 图片懒加载 + 模糊占位
+# 图片懒加载 + 模糊占位（本地占位图，零外链）
 lazyload:
   enable: true
   native: false
   field: site
-  placeholder: https://cdn.jsdelivr.net/npm/loading.js@2.3.5/loading.svg
+  placeholder: /img/loading-gufeng.svg
   blur: true
 
 # ==================== 图片灯箱 ====================

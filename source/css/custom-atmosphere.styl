@@ -1,0 +1,144 @@
+/* ============================================
+ * 批次1：全站氛围组件
+ * 1. 加载进度条（pace.js 古风版）
+ * 2. 页脚重设计（卡片式 + 古诗）
+ * 3. 标签页失焦动效
+ * 4. 樱花飘落 + 水墨点击特效
+ * ============================================ */
+
+/* ===== 1. 加载进度条（朱砂色 pace）===== */
+.pace {
+  pointer-events: none;
+  user-select: none;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.pace-progress {
+  background: linear-gradient(90deg, #8c3b2e, #a8351f, #8c3b2e);
+  box-shadow: 0 0 10px rgba(140, 59, 46, .6);
+  transition: width .3s ease;
+}
+[data-theme="dark"] .pace-progress {
+  background: linear-gradient(90deg, #c9583f, #e07550, #c9583f);
+  box-shadow: 0 0 10px rgba(201, 88, 63, .6);
+}
+.pace-inactive { display: none; }
+
+/* ===== 2. 页脚重设计 ===== */
+#footer {
+  background: rgba(140, 59, 46, .04) !important;
+  border-top: 1px solid rgba(140, 59, 46, .15) !important;
+  margin-top: 2rem;
+}
+#footer-wrap {
+  position: relative;
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+/* 页脚古诗装饰 */
+#footer-wrap::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  margin: 0 auto 1.2rem;
+  background: linear-gradient(90deg, transparent, rgba(140, 59, 46, .5), transparent);
+}
+.footer-poem {
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-size: .95rem;
+  letter-spacing: .15em;
+  color: var(--font-color);
+  opacity: .75;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+.footer-poem .poem-title {
+  display: block;
+  font-size: .8rem;
+  opacity: .6;
+  margin-top: .3rem;
+}
+#footer-wrap .framework-info,
+#footer-wrap .footer-info {
+  font-size: .8rem;
+  opacity: .65;
+}
+#footer-wrap a {
+  color: var(--theme-color);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(140, 59, 46, .3);
+}
+#footer-wrap a:hover {
+  border-bottom-style: solid;
+}
+[data-theme="dark"] #footer a {
+  border-bottom-color: rgba(201, 88, 63, .3);
+}
+
+/* ===== 3. 标签页失焦动效（JS 控制标题）===== */
+/* 失焦标题由 JS 切换，这里加切换过渡 */
+title { transition: all .3s; }
+
+/* ===== 4. 樱花飘落 ===== */
+.sakura-petal {
+  position: fixed;
+  top: -10vh;
+  z-index: 999;
+  pointer-events: none;
+  user-select: none;
+  font-size: 14px;
+  color: rgba(200, 120, 130, .8);
+  text-shadow: 0 0 4px rgba(200, 120, 130, .4);
+  animation: sakura-fall linear forwards;
+}
+[data-theme="dark"] .sakura-petal {
+  color: rgba(230, 150, 160, .6);
+}
+@keyframes sakura-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== 5. 点击水墨晕染 ===== */
+.ink-ripple {
+  position: fixed;
+  pointer-events: none;
+  z-index: 998;
+  border-radius: 50%;
+  border: 2px solid rgba(140, 59, 46, .5);
+  animation: ink-spread .8s ease-out forwards;
+}
+[data-theme="dark"] .ink-ripple {
+  border-color: rgba(201, 88, 63, .6);
+}
+@keyframes ink-spread {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
+    opacity: 0;
+  }
+}
+
+/* ===== 移动端：关掉樱花省性能 ===== */
+@media (max-width: 768px) {
+  .sakura-petal { display: none; }
+}
