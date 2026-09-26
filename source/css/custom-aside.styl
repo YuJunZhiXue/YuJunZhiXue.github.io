@@ -246,17 +246,30 @@
   padding: .3rem .5rem;
 }
 
-/* ===== 6. 侧边栏音乐播放器 ===== */
+/* ===== 6. fixed 播放器：彻底隐藏全宽歌词层（防遮挡页脚）===== */
+body > meting-js .aplayer-lrc,
+.aplayer-lrc {
+  display: none !important;
+}
+body > meting-js {
+  z-index: 998 !important;
+}
+/* 列表默认收起，点击才展开 */
+.aplayer-list {
+  max-height: 240px;
+}
+
+/* ===== 侧边栏音乐播放器（若启用）===== */
 #aside-content .aplayer {
   margin: 0;
   box-shadow: none;
   border: 1px solid rgba(73, 177, 245, .15);
   border-radius: .8rem;
-  background: var(--paper) !important;
-  font-family: "Noto Serif SC", serif !important;
+  background: #fff !important;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif !important;
 }
 [data-theme="dark"] #aside-content .aplayer {
-  background: var(--paper) !important;
+  background: #121212 !important;
   border-color: rgba(107, 192, 247, .15);
 }
 
