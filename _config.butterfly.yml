@@ -53,13 +53,17 @@ inject:
     - <link rel="stylesheet" href="/fonts/noto-sans-sc-400.css">
     - <link rel="stylesheet" href="/css/custom-gufeng.css">
     - <link rel="stylesheet" href="/css/custom-atmosphere.css">
+    - <link rel="stylesheet" href="/css/custom-aside.css">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
     - <script src="/fonts/pace-js.min.js"></script>
   bottom:
     - <script src="/fonts/aplayer-APlayer.min.js"></script>
     - <script src="/fonts/meting-Meting.min.js"></script>
     - <script src="/js/custom-atmosphere.js"></script>
+    - <script src="/js/custom-aside.js"></script>
     - <script>document.addEventListener("DOMContentLoaded",function(){var f=document.getElementById("footer-wrap");if(f&&!f.querySelector(".footer-poem")){var p=document.createElement("div");p.className="footer-poem";p.innerHTML="纸上得来终觉浅，绝知此事要躬行<span class='poem-title'>—— 陆游《冬夜读书示子聿》</span>";f.insertBefore(p,f.firstChild);}});</script>
+    - <script>document.addEventListener("DOMContentLoaded",function(){var aside=document.getElementById("aside-content");if(!aside)return;var widgets=[{id:"card-aside-search",html:'<div class="card-widget card-search"><div class="item-headline"><i class="fas fa-search"></i><span>搜索</span></div><input id="aside-search-input" type="text" placeholder="搜索文章标题…"><div class="search-results" id="aside-search-results"></div></div>'},{id:"card-aside-lunar",html:'<div class="card-widget card-lunar lunar-date" id="lunar-card"><div class="item-headline"><i class="fas fa-calendar-day"></i><span>今日</span></div><div class="lunar-gregorian" data-lunar="gregorian"></div><div class="lunar-day" data-lunar="day"></div><div class="lunar-month" data-lunar="dayname"></div><span class="lunar-jieqi" data-lunar="jieqi"></span></div>'},{id:"card-aside-gh",html:'<div class="card-widget card-github"><div class="item-headline"><i class="fab fa-github"></i><span>GitHub</span></div><div class="gh-header"><img class="gh-avatar" src="https://avatars.githubusercontent.com/YuJunZhiXue" alt="avatar" referrerpolicy="no-referrer"><div><div class="gh-name">叫我小杨同学</div><div class="gh-bio">开源项目</div></div></div><div id="gh-repos" data-username="YuJunZhiXue"></div></div>'},{id:"card-aside-online",html:'<div class="card-widget card-online" id="online-card"><div class="item-headline"><i class="fas fa-chart-line"></i><span>统计</span></div><div class="online-row"><span>今日访问</span><span class="online-num" data-online="today">-</span></div><div class="online-row"><span>总访问量</span><span class="online-num" data-online="total">-</span></div></div>'},{id:"card-aside-yiyan",html:'<div class="card-widget card-yiyan" id="yiyan-card"><div class="item-headline"><i class="fas fa-feather"></i><span>一言</span></div><div class="yiyan-text" data-yiyan="text">加载中…</div><div class="yiyan-from" data-yiyan="from"></div><button class="yiyan-refresh">换一句</button></div>'}];widgets.forEach(function(w){if(!document.getElementById(w.id)){var temp=document.createElement("div");temp.innerHTML=w.html;aside.appendChild(temp.firstElementChild);}});});</script>
+    - <meting-js fixed="true" autoplay="false" theme="#8c3b2e" server="netease" type="playlist" id="3778678" order="random"></meting-js>
 
 # ==================== 图片资源 ====================
 favicon: /images/avstar.jpg
