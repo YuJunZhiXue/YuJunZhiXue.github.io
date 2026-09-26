@@ -92,7 +92,7 @@
   width: 200px;
   border-radius: .7rem;
   border: 1px solid rgba(140, 59, 46, .15);
-  background: rgba(245, 241, 232, .7);
+  background: var(--paper);
   overflow: hidden;
   text-decoration: none !important;
   transition: all .25s ease;
@@ -103,7 +103,7 @@
   border-color: rgba(140, 59, 46, .35);
 }
 [data-theme="dark"] .recent-item {
-  background: rgba(30, 26, 22, .7);
+  background: var(--paper);
   border-color: rgba(201, 88, 63, .15);
 }
 [data-theme="dark"] .recent-item:hover {
@@ -141,10 +141,10 @@
   padding: 1rem;
   border-radius: .8rem;
   border: 1px solid rgba(140, 59, 46, .12);
-  background: rgba(245, 241, 232, .5);
+  background: var(--paper);
 }
 [data-theme="dark"] .home-tag-cloud {
-  background: rgba(30, 26, 22, .5);
+  background: var(--paper);
   border-color: rgba(201, 88, 63, .12);
 }
 .home-tag-cloud .cloud-title {
@@ -205,7 +205,7 @@
   padding: 1.2rem .9rem;
   border-radius: .8rem;
   border: 1px solid rgba(140, 59, 46, .15);
-  background: linear-gradient(135deg, rgba(245, 241, 232, .9), rgba(238, 230, 215, .9));
+  background: var(--paper);
   text-decoration: none !important;
   overflow: hidden;
   transition: all .25s ease;
@@ -216,7 +216,7 @@
   border-color: rgba(140, 59, 46, .4);
 }
 [data-theme="dark"] .cat-card {
-  background: linear-gradient(135deg, rgba(30, 26, 22, .9), rgba(38, 33, 28, .9));
+  background: var(--paper);
   border-color: rgba(201, 88, 63, .15);
 }
 [data-theme="dark"] .cat-card:hover {
@@ -255,7 +255,7 @@
 #recent-posts .recent-post-item {
   border-radius: 1rem !important;
   border: 1px solid rgba(140, 59, 46, .12) !important;
-  background: rgba(245, 241, 232, .75) !important;
+  background: var(--paper) !important;
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px -4px rgba(60, 30, 20, .15) !important;
   transition: all .3s cubic-bezier(.4, 0, .2, 1) !important;
@@ -268,7 +268,7 @@
   border-color: rgba(140, 59, 46, .3) !important;
 }
 [data-theme="dark"] #recent-posts .recent-post-item {
-  background: rgba(30, 26, 22, .75) !important;
+  background: var(--paper) !important;
   border-color: rgba(201, 88, 63, .12) !important;
 }
 [data-theme="dark"] #recent-posts .recent-post-item:hover {
