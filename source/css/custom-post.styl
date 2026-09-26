@@ -16,13 +16,13 @@
   height: 3px;
   width: 0%;
   z-index: 1101;
-  background: linear-gradient(90deg, #8c3b2e, #a8351f, #c9583f);
-  box-shadow: 0 0 8px rgba(140, 59, 46, .5);
+  background: linear-gradient(90deg, #49b1f5, #2f9bf0, #6bc0f7);
+  box-shadow: 0 0 8px rgba(73, 177, 245, .5);
   transition: width .1s linear;
 }
 [data-theme="dark"] .read-progress {
-  background: linear-gradient(90deg, #c9583f, #e07550);
-  box-shadow: 0 0 8px rgba(201, 88, 63, .5);
+  background: linear-gradient(90deg, #6bc0f7, #8fd0fa);
+  box-shadow: 0 0 8px rgba(107, 192, 247, .5);
 }
 
 /* ===== 2. 文章底部操作区 ===== */
@@ -35,12 +35,12 @@
   margin: 1.5rem 0;
   padding: 1rem;
   border-radius: .8rem;
-  background: rgba(140, 59, 46, .03);
-  border: 1px solid rgba(140, 59, 46, .12);
+  background: rgba(73, 177, 245, .03);
+  border: 1px solid rgba(73, 177, 245, .12);
 }
 [data-theme="dark"] .post-actions {
-  background: rgba(201, 88, 63, .04);
-  border-color: rgba(201, 88, 63, .15);
+  background: rgba(107, 192, 247, .04);
+  border-color: rgba(107, 192, 247, .15);
 }
 .post-action-btn {
   display: inline-flex;
@@ -48,9 +48,9 @@
   gap: .35rem;
   padding: .45rem 1.1rem;
   border-radius: 999px;
-  border: 1px solid rgba(140, 59, 46, .3);
+  border: 1px solid rgba(73, 177, 245, .3);
   background: transparent;
-  color: #8c3b2e;
+  color: #49b1f5;
   font-size: .85rem;
   font-family: inherit;
   cursor: pointer;
@@ -58,23 +58,23 @@
   user-select: none;
 }
 .post-action-btn:hover {
-  background: rgba(140, 59, 46, .08);
+  background: rgba(73, 177, 245, .08);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px -4px rgba(140, 59, 46, .4);
+  box-shadow: 0 4px 10px -4px rgba(73, 177, 245, .4);
 }
 .post-action-btn.liked {
-  background: rgba(140, 59, 46, .12);
+  background: rgba(73, 177, 245, .12);
   border-color: var(--theme-color);
 }
 [data-theme="dark"] .post-action-btn {
-  color: #e07550;
-  border-color: rgba(201, 88, 63, .3);
+  color: #8fd0fa;
+  border-color: rgba(107, 192, 247, .3);
 }
 [data-theme="dark"] .post-action-btn:hover {
-  background: rgba(201, 88, 63, .1);
+  background: rgba(107, 192, 247, .1);
 }
 [data-theme="dark"] .post-action-btn.liked {
-  background: rgba(201, 88, 63, .15);
+  background: rgba(107, 192, 247, .15);
 }
 .post-action-btn .like-count {
   font-weight: 700;
@@ -91,23 +91,23 @@
   display: block;
   padding: .9rem 1rem;
   border-radius: .8rem;
-  border: 1px solid rgba(140, 59, 46, .15);
-  background: rgba(140, 59, 46, .03);
+  border: 1px solid rgba(73, 177, 245, .15);
+  background: rgba(73, 177, 245, .03);
   text-decoration: none !important;
   transition: all .25s ease;
   min-width: 0;
 }
 .post-nav-card:hover {
-  border-color: rgba(140, 59, 46, .4);
+  border-color: rgba(73, 177, 245, .4);
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px -6px rgba(140, 59, 46, .35);
+  box-shadow: 0 6px 14px -6px rgba(73, 177, 245, .35);
 }
 [data-theme="dark"] .post-nav-card {
-  border-color: rgba(201, 88, 63, .15);
-  background: rgba(201, 88, 63, .04);
+  border-color: rgba(107, 192, 247, .15);
+  background: rgba(107, 192, 247, .04);
 }
 [data-theme="dark"] .post-nav-card:hover {
-  border-color: rgba(201, 88, 63, .4);
+  border-color: rgba(107, 192, 247, .4);
 }
 .post-nav-card .nav-label {
   font-size: .72rem;
@@ -139,22 +139,22 @@
   margin: 1rem 0;
   border-radius: .6rem;
   overflow: hidden;
-  border: 1px solid rgba(140, 59, 46, .15);
+  border: 1px solid rgba(73, 177, 245, .15);
 }
 #article-container figure.highlight .code-lang {
   display: flex;
   align-items: center;
   gap: .4rem;
   padding: .4rem .8rem;
-  background: rgba(140, 59, 46, .06);
-  border-bottom: 1px solid rgba(140, 59, 46, .12);
+  background: rgba(73, 177, 245, .06);
+  border-bottom: 1px solid rgba(73, 177, 245, .12);
   font-size: .72rem;
   color: var(--font-color);
   opacity: .8;
 }
 [data-theme="dark"] #article-container figure.highlight .code-lang {
-  background: rgba(201, 88, 63, .08);
-  border-bottom-color: rgba(201, 88, 63, .15);
+  background: rgba(107, 192, 247, .08);
+  border-bottom-color: rgba(107, 192, 247, .15);
 }
 /* macOS 圆点 */
 .code-lang::before {
@@ -176,20 +176,20 @@
   padding: .1rem .5rem;
   font-size: .68rem;
   border-radius: .35rem;
-  border: 1px solid rgba(140, 59, 46, .3);
+  border: 1px solid rgba(73, 177, 245, .3);
   background: transparent;
   color: var(--theme-color);
   cursor: pointer;
   flex: none;
 }
 .code-toggle:hover {
-  background: rgba(140, 59, 46, .08);
+  background: rgba(73, 177, 245, .08);
 }
 [data-theme="dark"] .code-toggle {
-  border-color: rgba(201, 88, 63, .3);
+  border-color: rgba(107, 192, 247, .3);
 }
 [data-theme="dark"] .code-toggle:hover {
-  background: rgba(201, 88, 63, .1);
+  background: rgba(107, 192, 247, .1);
 }
 /* 折叠状态：隐藏代码体 */
 figure.highlight.collapsed .code-container,
@@ -208,7 +208,7 @@ figure.highlight.collapsed {
   padding: .15rem .5rem;
   font-size: .68rem;
   border-radius: .35rem;
-  border: 1px solid rgba(140, 59, 46, .3);
+  border: 1px solid rgba(73, 177, 245, .3);
   background: rgba(255, 253, 248, .85);
   color: var(--theme-color);
   cursor: pointer;
@@ -241,12 +241,12 @@ figure.highlight:hover .copy-btn {
   border-radius: 999px;
   background: rgba(245, 241, 232, .92);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(140, 59, 46, .2);
+  border: 1px solid rgba(73, 177, 245, .2);
   box-shadow: 0 8px 24px -8px rgba(60, 30, 20, .35);
 }
 [data-theme="dark"] .mobile-toolbar {
   background: rgba(26, 23, 20, .92);
-  border-color: rgba(201, 88, 63, .25);
+  border-color: rgba(107, 192, 247, .25);
 }
 .mobile-toolbar .tb-btn {
   width: 38px;
@@ -264,12 +264,12 @@ figure.highlight:hover .copy-btn {
 }
 .mobile-toolbar .tb-btn:hover,
 .mobile-toolbar .tb-btn.active {
-  background: rgba(140, 59, 46, .1);
+  background: rgba(73, 177, 245, .1);
   color: var(--theme-color);
 }
 [data-theme="dark"] .mobile-toolbar .tb-btn:hover,
 [data-theme="dark"] .mobile-toolbar .tb-btn.active {
-  background: rgba(201, 88, 63, .15);
+  background: rgba(107, 192, 247, .15);
 }
 @media (max-width: 768px) {
   .mobile-toolbar {

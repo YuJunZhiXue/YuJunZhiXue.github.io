@@ -18,20 +18,20 @@
   height: 3px;
 }
 .pace-progress {
-  background: linear-gradient(90deg, #8c3b2e, #a8351f, #8c3b2e);
-  box-shadow: 0 0 10px rgba(140, 59, 46, .6);
+  background: linear-gradient(90deg, #49b1f5, #2f9bf0, #49b1f5);
+  box-shadow: 0 0 10px rgba(73, 177, 245, .6);
   transition: width .3s ease;
 }
 [data-theme="dark"] .pace-progress {
-  background: linear-gradient(90deg, #c9583f, #e07550, #c9583f);
-  box-shadow: 0 0 10px rgba(201, 88, 63, .6);
+  background: linear-gradient(90deg, #6bc0f7, #8fd0fa, #6bc0f7);
+  box-shadow: 0 0 10px rgba(107, 192, 247, .6);
 }
 .pace-inactive { display: none; }
 
 /* ===== 2. 页脚重设计 ===== */
 #footer {
-  background: rgba(140, 59, 46, .04) !important;
-  border-top: 1px solid rgba(140, 59, 46, .15) !important;
+  background: rgba(73, 177, 245, .04) !important;
+  border-top: 1px solid rgba(73, 177, 245, .15) !important;
   margin-top: 2rem;
 }
 #footer-wrap {
@@ -46,7 +46,7 @@
   width: 60px;
   height: 1px;
   margin: 0 auto 1.2rem;
-  background: linear-gradient(90deg, transparent, rgba(140, 59, 46, .5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(73, 177, 245, .5), transparent);
 }
 .footer-poem {
   font-family: "Noto Serif SC", "Songti SC", serif;
@@ -71,13 +71,13 @@
 #footer-wrap a {
   color: var(--theme-color);
   text-decoration: none;
-  border-bottom: 1px dashed rgba(140, 59, 46, .3);
+  border-bottom: 1px dashed rgba(73, 177, 245, .3);
 }
 #footer-wrap a:hover {
   border-bottom-style: solid;
 }
 [data-theme="dark"] #footer a {
-  border-bottom-color: rgba(201, 88, 63, .3);
+  border-bottom-color: rgba(107, 192, 247, .3);
 }
 
 /* ===== 3. 标签页失焦动效（JS 控制标题）===== */
@@ -118,11 +118,11 @@ title { transition: all .3s; }
   pointer-events: none;
   z-index: 998;
   border-radius: 50%;
-  border: 2px solid rgba(140, 59, 46, .5);
+  border: 2px solid rgba(73, 177, 245, .5);
   animation: ink-spread .8s ease-out forwards;
 }
 [data-theme="dark"] .ink-ripple {
-  border-color: rgba(201, 88, 63, .6);
+  border-color: rgba(107, 192, 247, .6);
 }
 @keyframes ink-spread {
   0% {

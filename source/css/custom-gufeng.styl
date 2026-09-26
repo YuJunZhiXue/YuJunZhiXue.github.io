@@ -1,149 +1,109 @@
-/* 古风皮肤 v2：水墨朱砂 —— 修复遮挡、提升对比度、字体混排 */
+/* ============================================
+ * 仿 onektas.top 设计语言重写
+ * 纯白底 + 蓝主题色 #49b1f5 + 无边框阴影卡片
+ * 保留古风骨架（宋体标题/节气/朱砂点缀仅在必要时）
+ * ============================================ */
 
-/* ============ 色板 ============ */
+/* ============ 色板：onektas 实采 ============ */
 :root {
-  --card-bg: #faf7f0;
-  --paper: #fffdf8;
-  --ink: #2b2622;
-  --ink-soft: #5a5249;
-  --ink-faint: #8a8074;
-  --line: #ddd5c7;
-  --theme-color: #8c3b2e;
-  --theme-paginator-color: #8c3b2e;
-  --theme-text-selection-color: #8c3b2e;
-  --theme-link-color: #6d3a2c;
-  --theme-meta-color: #7a6e60;
-  --theme-hr-color: #cfc5b4;
-  --theme-toc-color: #8c3b2e;
-  --blockquote-padding-color: #8c3b2e;
-  --blockquote-background-color: rgba(140,59,46,.06);
-  --scrollbar-color: #cfc5b4;
-  --shadow-soft: 0 1px 3px rgba(60,52,44,.06), 0 4px 12px rgba(60,52,44,.05);
-  --shadow-lift: 0 4px 10px rgba(60,52,44,.10), 0 12px 28px rgba(60,52,44,.08);
+  --card-bg: #ffffff;
+  --paper: #ffffff;
+  --ink: #4c4948;
+  --ink-soft: #858585;
+  --ink-faint: #adadad;
+  --line: #eaeaea;
+  --theme-color: #49b1f5;
+  --theme-paginator-color: #49b1f5;
+  --theme-text-selection-color: #49b1f5;
+  --theme-link-color: #49b1f5;
+  --theme-meta-color: #858585;
+  --theme-hr-color: #eaeaea;
+  --theme-toc-color: #49b1f5;
+  --blockquote-padding-color: #49b1f5;
+  --blockquote-background-color: rgba(73,177,245,.06);
+  --scrollbar-color: #49b1f5;
+  --shadow-card: 0 3px 8px 6px rgba(7,17,27,.05);
+  --shadow-lift: 0 6px 16px 8px rgba(7,17,27,.09);
 }
-
 [data-theme="dark"] {
-  --card-bg: #1c1915;
-  --paper: #26211c;
-  --ink: #e8e0d4;
-  --ink-soft: #b8ac9c;
-  --ink-faint: #8a7f70;
-  --line: #3a342d;
-  --theme-color: #d1684f;
-  --theme-paginator-color: #d1684f;
-  --theme-text-selection-color: #d1684f;
-  --theme-link-color: #d9b48f;
-  --theme-meta-color: #9a8e7d;
-  --theme-hr-color: #45403a;
-  --theme-toc-color: #d1684f;
-  --blockquote-padding-color: #d1684f;
-  --blockquote-background-color: rgba(209,104,79,.08);
-  --scrollbar-color: #45403a;
-  --shadow-soft: 0 1px 3px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.25);
-  --shadow-lift: 0 4px 10px rgba(0,0,0,.4), 0 12px 28px rgba(0,0,0,.35);
+  --card-bg: #121212;
+  --paper: #1c1c1c;
+  --ink: #e8e6e3;
+  --ink-soft: #9a9a9a;
+  --ink-faint: #6a6a6a;
+  --line: #2a2a2a;
+  --theme-color: #80c8f8;
+  --theme-paginator-color: #80c8f8;
+  --theme-text-selection-color: #80c8f8;
+  --theme-link-color: #80c8f8;
+  --theme-meta-color: #9a9a9a;
+  --theme-hr-color: #2a2a2a;
+  --theme-toc-color: #80c8f8;
+  --blockquote-padding-color: #80c8f8;
+  --blockquote-background-color: rgba(128,200,248,.08);
+  --scrollbar-color: #80c8f8;
+  --shadow-card: 0 3px 8px 6px rgba(0,0,0,.3);
+  --shadow-lift: 0 6px 16px 8px rgba(0,0,0,.45);
 }
 
 #body-wrap {
   --font-color: var(--ink);
   --default-text-color: var(--ink);
   --card-bg: var(--card-bg);
+  background: #fff;
 }
+[data-theme="dark"] #body-wrap { background: #121212; }
 
-/* ============ 宣纸底：z-index 负数背景层，绝不遮挡文字 ============ */
-#body-wrap {
-  position: relative;
-  background:
-    radial-gradient(ellipse 800px 600px at 85% 10%, rgba(140,59,46,.04), transparent 60%),
-    radial-gradient(ellipse 1000px 800px at 5% 95%, rgba(60,52,44,.05), transparent 55%),
-    var(--card-bg);
-}
-[data-theme="dark"] #body-wrap {
-  background:
-    radial-gradient(ellipse 800px 600px at 85% 10%, rgba(209,104,79,.05), transparent 60%),
-    radial-gradient(ellipse 1000px 800px at 5% 95%, rgba(200,180,154,.03), transparent 55%),
-    #1c1915;
-}
-
-/* 宣纸纤维：背景层，极低透明度 */
+/* 移除宣纸底和噪声层（onektas 是纯白）*/
+#body-wrap,
 #body-wrap::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: .14;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  background: none !important;
 }
-[data-theme="dark"] #body-wrap::before {
-  opacity: .08;
-}
+#body-wrap::before { display: none; }
 
-/* ============ 字体混排：标题宋体 / 正文黑体 ============ */
-#article-container .post-content h1,
-#article-container .post-content h2,
-#article-container .post-content h3,
-#article-container .post-content h4,
-.hero-greeting .greeting-time,
-#site-title,
-#aside-content .item-headline span,
-.strip-title,
-.cloud-title {
-  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
-  font-weight: 700;
-}
-
-#article-container .post-content,
+/* ============ 字体：系统字体（onektas 用系统栈）============ */
+#body-wrap,
+#body-wrap *,
 .recent-post-info,
 #aside-content,
 #footer,
 blockquote {
-  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+               "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif !important;
 }
-
-figure.highlight,
-pre,
-code,
-#article-container .code-area,
-.aplayer *,
-kbd {
-  font-family: "JetBrains Mono", "SF Mono", Consolas, Menlo, monospace !important;
-}
-
-/* ============ 标题：墨笔风 ============ */
+/* 标题保留宋体（古风骨架） */
 #article-container .post-content h1,
 #article-container .post-content h2,
 #article-container .post-content h3,
-#article-container .post-content h4 {
-  letter-spacing: .05em;
-  border-bottom: 1px solid var(--line);
+#site-title,
+.hero-greeting .greeting-time,
+.strip-title,
+.cloud-title {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif !important;
 }
-#article-container .post-content h1:before,
-#article-container .post-content h2:before {
-  color: var(--theme-color);
-}
-[data-theme="dark"] #article-container .post-content h1:before,
-[data-theme="dark"] #article-container .post-content h2:before {
-  color: var(--theme-color);
+figure.highlight, pre, code, .aplayer *, kbd {
+  font-family: "JetBrains Mono", "SF Mono", Consolas, Menlo, monospace !important;
 }
 
 /* ============ 导航栏 ============ */
 #nav-header,
 .navbar {
-  background: rgba(250,247,240,.88) !important;
+  background: rgba(255,255,255,.9) !important;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: none;
+  box-shadow: 0 1px 8px rgba(7,17,27,.04);
 }
 [data-theme="dark"] #nav-header,
 [data-theme="dark"] .navbar {
-  background: rgba(28,25,21,.88) !important;
-  border-bottom: 1px solid var(--line);
+  background: rgba(18,18,18,.9) !important;
 }
 #nav .site-page,
 .navbar .nav-links a {
-  font-weight: 600;
-  letter-spacing: .06em;
+  font-weight: 500;
+  letter-spacing: .02em;
   color: var(--ink);
 }
+/* 下划线：onektas 风格的蓝色短线 */
 #nav .site-page:not(.child)::after {
   left: 50% !important;
   width: 0 !important;
@@ -154,55 +114,53 @@ kbd {
 }
 #nav .site-page:not(.child):hover::after,
 #nav .site-page:not(.child).select::after {
-  width: 45% !important;
+  width: 40% !important;
 }
 
-/* ============ 卡片：实色纸感 ============ */
-/* sticky 粘性区限高：内部可滚，避免粘住时高出视口与后续卡片重叠 */
+/* ============ 卡片：无边框纯阴影（onektas 核心特征）============ */
+#aside-content .card-widget,
+.layout-pages .card-page,
+#pagination,
+#article-container,
+#recent-posts .recent-post-item {
+  background: var(--paper);
+  border: none;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+#recent-posts .recent-post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+/* sticky 粘性区限高保持 */
 #aside-content .sticky_layout {
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   padding-right: 2px;
-  scrollbar-width: thin;
 }
-#aside-content .sticky_layout::-webkit-scrollbar {
-  width: 4px;
-}
+#aside-content .sticky_layout::-webkit-scrollbar { width: 4px; }
 #aside-content .sticky_layout::-webkit-scrollbar-thumb {
-  background: rgba(140,59,46,.25);
-  border-radius: 2px;
-}
-[data-theme="dark"] #aside-content .sticky_layout::-webkit-scrollbar-thumb {
-  background: rgba(201,88,63,.3);
-}
-
-#aside-content .card-widget,
-.layout-pages .card-page,
-#pagination {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-soft);
-}
-[data-theme="dark"] #aside-content .card-widget,
-[data-theme="dark"] .layout-pages .card-page,
-[data-theme="dark"] #pagination {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-soft);
+  background: rgba(73,177,245,.35); border-radius: 2px;
 }
 
 /* ============ 文章页 ============ */
 #article-container .post-content {
-  line-height: 2;
-  letter-spacing: .02em;
+  line-height: 1.9;
+  letter-spacing: .01em;
   color: var(--ink);
 }
-#article-container {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-soft);
+#article-container .post-content h1,
+#article-container .post-content h2,
+#article-container .post-content h3,
+#article-container .post-content h4 {
+  letter-spacing: .03em;
+  border-bottom: none;
+  color: var(--ink);
 }
-
+#article-container .post-content h1:before,
+#article-container .post-content h2:before {
+  color: var(--theme-color);
+}
 blockquote {
   border-left: 3px solid var(--theme-color) !important;
   background: var(--blockquote-background-color) !important;
@@ -213,74 +171,66 @@ blockquote {
   border-left: 3px solid var(--theme-color) !important;
 }
 
-/* ============ 首页文章卡片 ============ */
-#recent-posts .recent-post-item {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-soft);
-  transition: all .3s ease;
-}
-#recent-posts .recent-post-item:hover {
-  border-color: rgba(140,59,46,.35);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lift);
-}
-[data-theme="dark"] #recent-posts .recent-post-item:hover {
-  border-color: rgba(209,104,79,.45);
-}
-
 /* ============ 按钮/标签 ============ */
 .button--primary,
 button.btn-primary,
 #aside-content .card-info .card-info-btn {
   background: var(--theme-color) !important;
   border-color: var(--theme-color) !important;
+  border-radius: 6px;
 }
 .button--primary:hover,
 button.btn-primary:hover {
-  background: #6f2e23 !important;
-  border-color: #6f2e23 !important;
+  background: #2a9bec !important;
+  border-color: #2a9bec !important;
 }
 [data-theme="dark"] .button--primary,
 [data-theme="dark"] button.btn-primary {
   background: var(--theme-color) !important;
   border-color: var(--theme-color) !important;
 }
-
 .tag-cloud-list a {
-  border: 1px solid rgba(140,59,46,.28) !important;
-  background: rgba(140,59,46,.05) !important;
+  border: 1px solid rgba(73,177,245,.3) !important;
+  background: rgba(73,177,245,.05) !important;
 }
 .tag-cloud-list a:hover {
-  background: rgba(140,59,46,.14) !important;
+  background: rgba(73,177,245,.15) !important;
 }
 
-/* ============ 滚动条 ============ */
+/* ============ 滚动条：onektas 蓝色渐变 ============ */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track {
+  background-color: rgba(73,177,245,.15);
+  border-radius: 1em;
+}
 ::-webkit-scrollbar-thumb {
-  background: rgba(140,59,46,.35);
-  border-radius: 4px;
+  background-color: #49b1f5;
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.4) 75%, transparent 75%, transparent);
+  border-radius: 1em;
 }
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: rgba(209,104,79,.35);
-}
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background-color: #80c8f8; }
+[data-theme="dark"] ::-webkit-scrollbar-track { background-color: rgba(128,200,248,.12); }
 
 /* ============ 页脚 ============ */
 #footer {
-  background: var(--paper) !important;
-  border-top: 1px solid var(--line);
+  background: #fff !important;
+  border-top: none;
   color: var(--ink-soft);
 }
 [data-theme="dark"] #footer {
-  background: var(--paper) !important;
+  background: #121212 !important;
   color: var(--ink-soft);
 }
 
+/* 选中文字：蓝底白字 */
 ::selection {
-  background: rgba(140,59,46,.2);
-  color: inherit;
+  background: rgba(73,177,245,.85);
+  color: #fff;
+}
+[data-theme="dark"] ::selection {
+  background: rgba(128,200,245,.85);
 }
 
 @media (max-width: 768px) {
-  #body-wrap::before { opacity: .1; }
   #article-container .post-content { letter-spacing: 0; }
 }
