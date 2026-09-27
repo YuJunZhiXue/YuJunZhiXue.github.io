@@ -54,6 +54,12 @@
 }
 [data-theme="dark"] #body-wrap { background: transparent; }
 
+/* ============ 页眉透明：header 与 body 共用 #web_bg 一张背景图 ============ */
+/* 只作用于没有单独配图的页眉（有 style 内联背景图的页面不受影响） */
+#page-header:not([style*="background-image"]) {
+  background: transparent !important;
+}
+
 /* 移除旧噪声层（改用主题 #web_bg 背景图）*/
 #body-wrap::before { display: none; }
 

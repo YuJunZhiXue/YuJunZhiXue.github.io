@@ -2,7 +2,7 @@
 
 # ==================== 导航 ====================
 nav:
-  logo: /images/avstar.jpg
+  logo: https://avatars.githubusercontent.com/YuJunZhiXue
   display_title: true
   display_post_title: true
   fixed: true   # 固定吸顶
@@ -84,10 +84,10 @@ inject:
     - <script>document.addEventListener("DOMContentLoaded",function(){var article=document.getElementById("article-container");if(!article||!document.getElementById("post-info"))return;var old=document.getElementById("post-actions");if(old)return;var div=document.createElement("div");div.className="post-actions";div.id="post-actions";div.innerHTML='<button class="post-action-btn post-like-btn"><span class="like-icon">♡</span> 赞 <span class="like-count">0</span></button>';article.appendChild(div);});</script>
 
 # ==================== 图片资源 ====================
-favicon: /images/avatar.jpg
+favicon: https://avatars.githubusercontent.com/YuJunZhiXue
 
 avatar:
-  img: /images/avatar.jpg
+  img: https://avatars.githubusercontent.com/YuJunZhiXue
   effect: true
 
 # 各页面横幅（古风留白，不强行塞图，用主题默认即可）
