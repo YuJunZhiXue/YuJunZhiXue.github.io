@@ -53,6 +53,8 @@ font:
 # 全站注入：全部本地化，零外链 CDN（国内国外都快）
 inject:
   head:
+    - <link rel="stylesheet" href="/fonts/fa6/all.min.css">
+    - <link rel="stylesheet" href="/css/fa6-compat.css">
     - <link rel="stylesheet" href="/fonts/noto-serif-sc-400.css">
     - <link rel="stylesheet" href="/fonts/noto-serif-sc-500.css">
     - <link rel="stylesheet" href="/fonts/noto-sans-sc-400.css">
