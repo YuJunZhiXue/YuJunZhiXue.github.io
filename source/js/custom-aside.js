@@ -33,30 +33,6 @@
     el.querySelector('[data-stat="days"]').textContent = days;
   }
 
-  /* ===== 2. GitHub 仓库卡片 ===== */
-  function initGithubCard() {
-    var el = document.getElementById("gh-repos");
-    if (!el) return;
-    var username = el.getAttribute("data-username") || "YuJunZhiXue";
-    fetch("https://api.github.com/users/" + username + "/repos?sort=updated&per_page=4")
-      .then(function (r) { return r.json(); })
-      .then(function (repos) {
-        if (!Array.isArray(repos)) return;
-        el.innerHTML = repos
-          .map(function (repo) {
-            return '<a class="gh-repo" href="' + repo.html_url + '" target="_blank" rel="noopener">' +
-              '<div class="gh-repo-name">' + (repo.fork ? "⑂ " : "") + repo.name + '</div>' +
-              (repo.description ? '<div class="gh-repo-desc">' + repo.description + "</div>" : "") +
-              '<div class="gh-repo-stars">★ ' + repo.stargazers_count + " · ⑂ " + repo.forks_count + "</div>" +
-              "</a>";
-          })
-          .join("");
-      })
-      .catch(function () {
-        el.innerHTML = '<div class="search-empty">GitHub 数据加载失败（可能需要代理）</div>';
-      });
-  }
-
   /* ===== 3. 农历日历 ===== */
   var LUNAR_INFO = [
     0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2,
@@ -244,22 +220,23 @@
     var btn = el.querySelector(".yiyan-refresh");
 
     function loadYiyan() {
-      // 古诗词 API（公开免费）
-      fetch("https://v1.jinrishici.com/all.json")
+      // 一言 API · 网易云热评分类
+      fetch("https://v1.hitokoto.cn/?c=j&encode=json")
         .then(function (r) { return r.json(); })
         .then(function (data) {
-          if (data && data.content) {
-            textEl.textContent = data.content;
-            fromEl.textContent = "—— " + (data.origin || {}).title + " · " + (data.origin || {}).dynasty + "《" + (data.origin || {}).author + "》";
+          if (data && data.hitokoto) {
+            textEl.textContent = data.hitokoto;
+            var who = data.from_who ? data.from_who + " · " : "";
+            fromEl.textContent = "—— " + who + (data.from || "网易云热评");
           }
         })
         .catch(function () {
-          // 兜底本地古诗
+          // 兜底本地热评
           var fallback = [
-            { t: "人生若只如初见，何事秋风悲画扇", f: "—— 纳兰性德《木兰花·拟古决绝词柬友》" },
-            { t: "众里寻他千百度，蓦然回首，那人却在，灯火阑珊处", f: "—— 辛弃疾《青玉案·元夕》" },
-            { t: "此情可待成追忆，只是当时已惘然", f: "—— 李商隐《锦瑟》" },
-            { t: "纸上得来终觉浅，绝知此事要躬行", f: "—— 陆游《冬夜读书示子聿》" },
+            { t: "总会有人，山高路远，替你而来。", f: "—— 网易云热评" },
+            { t: "愿你所有的不安，都是虚惊一场。", f: "—— 网易云热评" },
+            { t: "所有不合时宜的相遇，都遗憾得让人心疼。", f: "—— 网易云热评" },
+            { t: "后来我终于学会了如何去爱，可惜你早已远去，消失在人海。", f: "—— 网易云《后来》热评" },
           ];
           var pick = fallback[Math.floor(Math.random() * fallback.length)];
           textEl.textContent = pick.t;
@@ -274,6 +251,6 @@
   /* ===== 启动 ===== */
   document.addEventListener("DOMContentLoaded", function () {
     initAuthorStats();
-    initGithubCard();
+    initYiyan();
   });
 })();
