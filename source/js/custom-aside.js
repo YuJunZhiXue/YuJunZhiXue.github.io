@@ -275,9 +275,5 @@
   document.addEventListener("DOMContentLoaded", function () {
     initAuthorStats();
     initGithubCard();
-    initLunar();
-    initOnline();
-    initSearch();
-    initYiyan();
   });
 })();
