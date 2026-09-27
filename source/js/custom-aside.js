@@ -220,10 +220,14 @@
     var btn = el.querySelector(".yiyan-refresh");
 
     function loadYiyan() {
-      // 一言 API · 网易云热评分类
-      fetch("https://v1.hitokoto.cn/?c=j&encode=json")
+      // 一言 API · 网易云热评分类（8 秒超时，超时则用本地兜底）
+      var ctrl = ("AbortController" in window) ? new AbortController() : null;
+      var timer = null;
+      if (ctrl) timer = setTimeout(function () { ctrl.abort(); }, 8000);
+      fetch("https://v1.hitokoto.cn/?c=j&encode=json", ctrl ? { signal: ctrl.signal } : {})
         .then(function (r) { return r.json(); })
         .then(function (data) {
+          if (timer) clearTimeout(timer);
           if (data && data.hitokoto) {
             textEl.textContent = data.hitokoto;
             var who = data.from_who ? data.from_who + " · " : "";
