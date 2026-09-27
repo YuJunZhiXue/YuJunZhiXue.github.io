@@ -272,7 +272,7 @@ CDN:
   option:
     fontawesome: /fonts/fa6/all.min.css
     fancybox_css: /fonts/fancybox.min.css
-    fancybox: /fonts/fancybox.min.js
+    fancybox: /fonts/fancybox.umd.js
 
 # ==================== 侧边栏 ====================
 aside:
