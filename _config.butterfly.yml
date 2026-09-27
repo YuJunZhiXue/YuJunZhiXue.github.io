@@ -71,7 +71,7 @@ inject:
     - <script src="/fonts/aplayer-APlayer.min.js"></script>
     - <script src="/fonts/meting-Meting.min.js"></script>
     - <script src="/js/custom-atmosphere.js"></script>
-    - <script src="/js/custom-aside.js"></script>
+    - <script src="/js/custom-aside.js?v=20260927a"></script>
     - <script src="/js/custom-post.js"></script>
     - <script src="/js/custom-home.js"></script>
     - <script src="/js/icon-beautify.js"></script>
