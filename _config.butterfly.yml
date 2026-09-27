@@ -59,13 +59,13 @@ inject:
     - <link rel="stylesheet" href="/fonts/noto-serif-sc-400.css">
     - <link rel="stylesheet" href="/fonts/noto-serif-sc-500.css">
     - <link rel="stylesheet" href="/fonts/noto-sans-sc-400.css">
-    - <link rel="stylesheet" href="/css/custom-gufeng.css">
-    - <link rel="stylesheet" href="/css/custom-atmosphere.css">
-    - <link rel="stylesheet" href="/css/custom-aside.css">
-    - <link rel="stylesheet" href="/css/custom-post.css">
-    - <link rel="stylesheet" href="/css/custom-home.css">
-    - <link rel="stylesheet" href="/css/custom-pages.css">
-    - <link rel="stylesheet" href="/css/custom-heatmap.css">
+    - <link rel="stylesheet" href="/css/custom-gufeng.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-atmosphere.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-aside.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-post.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-home.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-pages.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-heatmap.css?v=20260927b">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
     - <script src="/fonts/pace-js.min.js"></script>
   bottom:

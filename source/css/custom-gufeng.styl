@@ -59,6 +59,10 @@
 #page-header:not([style*="background-image"]) {
   background: transparent !important;
 }
+/* 去掉无配图页眉的主题遮罩层（::before 深色蒙版），保证图片完全连贯 */
+#page-header:not([style*="background-image"])::before {
+  display: none !important;
+}
 
 /* 移除旧噪声层（改用主题 #web_bg 背景图）*/
 #body-wrap::before { display: none; }
