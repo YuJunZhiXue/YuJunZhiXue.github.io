@@ -50,16 +50,17 @@
   --font-color: var(--ink);
   --default-text-color: var(--ink);
   --card-bg: var(--card-bg);
-  background: #fff;
+  background: transparent; /* 让 #web_bg 的背景图透出来 */
 }
-[data-theme="dark"] #body-wrap { background: #121212; }
+[data-theme="dark"] #body-wrap { background: transparent; }
 
 /* 移除旧噪声层（改用主题 #web_bg 背景图）*/
 #body-wrap::before { display: none; }
 
 /* ============ 字体：系统字体（onektas 用系统栈）============ */
+/* 注意：排除 <i> 元素，否则 Font Awesome / Remix Icon 的图标字体会被覆盖导致图标空白 */
 #body-wrap,
-#body-wrap *,
+#body-wrap *:not(i),
 .recent-post-info,
 #aside-content,
 #footer,
