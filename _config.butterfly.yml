@@ -266,10 +266,13 @@ footer:
   custom_text: ''
 
 # ==================== CDN 本地化（去 jsdelivr，图标秒开）====================
-asset:
-  fontawesome: /fonts/fa6/all.min.css
-  fancybox: /fonts/fancybox.min.js
-  fancybox_css: /fonts/fancybox.min.css
+CDN:
+  internal_provider: local
+  third_party_provider: jsdelivr
+  option:
+    fontawesome: /fonts/fa6/all.min.css
+    fancybox_css: /fonts/fancybox.min.css
+    fancybox: /fonts/fancybox.min.js
 
 # ==================== 侧边栏 ====================
 aside:
