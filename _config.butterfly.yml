@@ -63,7 +63,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom-atmosphere.css?v=20260927b">
     - <link rel="stylesheet" href="/css/custom-aside.css?v=20260927b">
     - <link rel="stylesheet" href="/css/custom-post.css?v=20260927b">
-    - <link rel="stylesheet" href="/css/custom-home.css?v=20260927b">
+    - <link rel="stylesheet" href="/css/custom-home.css?v=20260927c">
     - <link rel="stylesheet" href="/css/custom-pages.css?v=20260927b">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
     - <script src="/fonts/pace-js.min.js"></script>

@@ -10,8 +10,19 @@
 /* ===== 1. 问候语打字机 ===== */
 .hero-greeting {
   text-align: center;
-  padding: 2.5rem 1rem 1.5rem;
+  padding: 1rem 1.2rem .9rem;
+  margin: 0 auto 1.2rem;
+  max-width: 560px;
+  background: rgba(255,255,255,.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 1rem;
   font-family: "Noto Serif SC", "Songti SC", serif;
+}
+[data-theme="dark"] .hero-greeting {
+  background: rgba(18,18,18,.55);
+  border-color: rgba(255,255,255,.12);
 }
 .hero-greeting .greeting-time {
   font-size: 1.6rem;
@@ -25,7 +36,7 @@
   margin-top: .6rem;
   font-size: .95rem;
   letter-spacing: .12em;
-  opacity: .8;
+  color: var(--font-color);
 }
 .greeting-cursor {
   display: inline-block;
