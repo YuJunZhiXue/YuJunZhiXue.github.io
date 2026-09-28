@@ -64,6 +64,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom-pages.css?v=20260927d">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
     - <script src="/fonts/pace-js.min.js"></script>
+    - <style>/* 关键布局内联：绕过 CSS 文件长缓存，确保边距即时生效 */#content-inner.layout{padding-left:20px!important;padding-right:20px!important}#page-header:not(.full_page):not([style*="background-image"]){width:calc(100% - 40px)!important;margin:20px!important;border-radius:16px;overflow:hidden;background:url(/images/bg.webp) center center/cover no-repeat fixed!important;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 24px rgba(60,45,30,.18)}</style>
   bottom:
     - <script src="/fonts/aplayer-APlayer.min.js"></script>
     - <script src="/fonts/meting-Meting.min.js"></script>
