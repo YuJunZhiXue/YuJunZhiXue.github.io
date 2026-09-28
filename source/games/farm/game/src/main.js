@@ -1,4 +1,4 @@
-import Game from './Game.js';
+import Game from './Game.js?v=3';
 
 function boot() {
     // Basic error handling for module loading
