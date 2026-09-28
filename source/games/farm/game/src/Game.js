@@ -96,9 +96,9 @@ export default class Game {
         this.assets.player.onload = onLoad;
         this.assets.player.src = 'assets/16x16/Sprites/$farmer.png';
         this.assets.house.onload = onLoad;
-        this.assets.house.src = 'assets/16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_buildings.png';
+        this.assets.house.src = 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_buildings.png';
         this.assets.details.onload = onLoad;
-        this.assets.details.src = 'assets/16x16/Tilesets (Compact)/vectoraith_tileset_farmingsims_details.png';
+        this.assets.details.src = 'assets/16x16/Tilesets_Compact/vectoraith_tileset_farmingsims_details.png';
         
         this.assets.babyChicken.onload = onLoad;
         this.assets.babyChicken.src = 'assets/16x16/Sprites/$chicken_chick.png';
@@ -109,27 +109,27 @@ export default class Game {
         this.assets.chest.onload = onLoad;
         this.assets.chest.src = 'assets/Objects/chest.png';
 
-        this.tilesetManager.loadTileset('spring', 'assets/16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_terrain_spring_expanded.png', { 
+        this.tilesetManager.loadTileset('spring', 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_terrain_spring_expanded.png', { 
             tileSize: 16, offsetX: 0, offsetY: 0 
         }).then(onLoad).catch(onLoad);
 
-        this.tilesetManager.loadTileset('summer', 'assets/16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_terrain_summer_expanded.png', { 
+        this.tilesetManager.loadTileset('summer', 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_terrain_summer_expanded.png', { 
             tileSize: 16, offsetX: 0, offsetY: 0 
         }).then(onLoad).catch(onLoad);
 
-        this.tilesetManager.loadTileset('fall', 'assets/16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_terrain_fall_expanded.png', { 
+        this.tilesetManager.loadTileset('fall', 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_terrain_fall_expanded.png', { 
             tileSize: 16, offsetX: 0, offsetY: 0 
         }).then(onLoad).catch(onLoad);
 
-        this.tilesetManager.loadTileset('winter', 'assets/16x16/Tilesets (Modular)/vectoraith_tileset_farmingsims_terrain_winter_expanded.png', { 
+        this.tilesetManager.loadTileset('winter', 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_terrain_winter_expanded.png', { 
             tileSize: 16, offsetX: 0, offsetY: 0 
         }).then(onLoad).catch(onLoad);
 
-        this.tilesetManager.loadTileset('crops', 'assets/16x16/Tilesets (Compact)/vectoraith_tileset_farmingsims_crops.png', { 
+        this.tilesetManager.loadTileset('crops', 'assets/16x16/Tilesets_Compact/vectoraith_tileset_farmingsims_crops.png', { 
             tileSize: 16, offsetX: 0, offsetY: 0 
         }).then(onLoad).catch(onLoad);
 
-        this.tilesetManager.loadTileset('fence', 'assets/Objects/Fence\'s copiar.png', { 
+        this.tilesetManager.loadTileset('fence', 'assets/Objects/Fence_copiar.png', { 
             tileSize: 16, offsetX: 0, offsetY: 0 
         }).then(onLoad).catch(onLoad);
 
