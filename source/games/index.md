@@ -60,11 +60,11 @@ comments: false
       <div class="game-desc">经典扫雷，考验逻辑与运气，支持多难度</div>
     </div>
   </a>
-  <a class="game-card" href="/relife/">
-    <div class="game-icon">🎲</div>
+  <a class="game-card" href="/games/farm/">
+    <div class="game-icon">🌾</div>
     <div class="game-body">
-      <div class="game-name">人生重开模拟器</div>
-      <div class="game-desc">这垃圾人生一秒也不想待了？那就重开吧</div>
+      <div class="game-name">快乐农场</div>
+      <div class="game-desc">像素风种田模拟，种菜养鸡，经营你的农场</div>
     </div>
   </a>
 </div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Pixel Farm Sim</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <canvas id="game-canvas"></canvas>
+      <div id="ui-layer">
+        <!-- UI Elements will go here -->
+        <div id="time-display">Day 1 - Spring</div>
+        <div id="money-display">$100</div>
+        <div id="energy-bar"><div id="energy-fill"></div></div>
+        <div id="quest-display"></div>
+        <div id="inventory-bar"></div>
+        <div id="shop-hint">Press ? for Help</div>
+        <div id="save-status"></div>
+        <div id="help-overlay">
+          <div id="help-panel">
+            <h2>Controls</h2>
+            <ul>
+              <li><b>Move</b> — WASD / Arrow keys, or left-click to walk there</li>
+              <li><b>Use tool / interact</b> — Space, or left-click a nearby tile/animal</li>
+              <li><b>Select tool</b> — number keys 1–9</li>
+              <li><b>Tools</b> — Hoe tills, Watering Can waters, Scythe harvests, Seeds plant</li>
+              <li><b>Pet / collect</b> — act on an animal (collect when it has a product)</li>
+              <li><b>Talk / quests</b> — act on a villager (look for the ! marker) to accept and turn in quests</li>
+              <li><b>Buildings</b> — step on the mat below one to enter; leave via the EXIT mat</li>
+              <li><b>Sleep</b> — face the bed in the house and press E, then confirm (restores energy, next day)</li>
+              <li><b>Shop</b> — B (buy seeds, sell crops, upgrade tools)</li>
+              <li><b>Save / Load</b> — K / L (autosaves each new day)</li>
+              <li><b>New Game</b> — N (erases your save)</li>
+              <li><b>Help</b> — ? (toggle this screen)</li>
+            </ul>
+            <p class="help-footer">Press ? or Esc to close</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
