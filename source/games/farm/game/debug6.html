@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Farm Debug6</title>
+<style>canvas{width:640px;height:480px;image-rendering:pixelated;background:#000}</style>
+</head>
+<body>
+<canvas id="game-canvas" width="320" height="240"></canvas>
+<pre id="log" style="white-space:pre-wrap;max-width:900px"></pre>
+<script type="module">
+const log = (m) => { document.getElementById('log').textContent += m + '\n'; };
+try {
+    const Game = (await import('./src/Game.js')).default;
+    const game = new Game('game-canvas');
+    // Manually init world without waiting for assets
+    const World = (await import('./src/World.js')).default;
+    log('creating World...');
+    const world = new World(game.tilesetManager, game.assets, game.events);
+    log('World created');
+    log('tilemap: ' + (world.tilemap ? 'exists' : 'NULL'));
+    if (world.tilemap) {
+        log('tilemap size: ' + world.tilemap.width + 'x' + world.tilemap.height);
+        log('tilesetName: ' + world.tilemap.tilesetName);
+        log('layers: ' + world.tilemap.layers.length);
+        if (world.tilemap.layers[0]) {
+            const data = world.tilemap.layers[0].data;
+            log('layer data length: ' + data.length);
+            const nonZero = data.filter(v => v !== 0).length;
+            log('non-zero tiles: ' + nonZero + '/' + data.length);
+            log('first 10: ' + data.slice(0,10).join(','));
+            // Check specific positions
+            log('tile at (0,0): ' + world.tilemap.getTile(0,0));
+            log('tile at (5,5): ' + world.tilemap.getTile(5,5));
+            log('tile at (25,7) [soil]: ' + world.tilemap.getTile(25,7));
+        }
+    }
+    log('staticObjects: ' + world.staticObjects.length);
+    log('fences: ' + world.fences.length);
+} catch(e) {
+    log('FATAL: ' + e.message + '\n' + (e.stack||'').split('\n').slice(0,8).join('\n'));
+}
+</script>
+</body>
+</html>
