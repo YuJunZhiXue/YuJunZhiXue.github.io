@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Farm Debug4</title>
+<style>canvas{width:640px;height:480px;image-rendering:pixelated;background:#000}</style>
+</head>
+<body>
+<canvas id="game-canvas" width="320" height="240"></canvas>
+<pre id="log" style="white-space:pre-wrap;max-width:800px"></pre>
+<script type="module">
+const log = (m) => { document.getElementById('log').textContent += m + '\n'; };
+window.onerror = (msg, src, line, col, err) => {
+    log('WINDOW ERROR: ' + msg + ' @' + line + ':' + col);
+    if (err && err.stack) log(err.stack.split('\n').slice(0,5).join('\n'));
+};
+try {
+    const Game = (await import('./src/Game.js')).default;
+    log('Game imported');
+    const game = new Game('game-canvas');
+    log('Game constructed');
+    // Wrap loop to catch errors
+    const origLoop = game.loop.bind(game);
+    let loopCount = 0;
+    let errorLogged = false;
+    game.loop = function(timestamp) {
+        try {
+            loopCount++;
+            origLoop(timestamp);
+            if (loopCount === 60) log('60 frames OK, world drawn');
+        } catch(e) {
+            if (!errorLogged) {
+                errorLogged = true;
+                log('LOOP ERROR on frame ' + loopCount + ': ' + e.message);
+                log((e.stack||'').split('\n').slice(0,8).join('\n'));
+            }
+        }
+    };
+    // Wrap initWorld
+    const origInit = game.initWorld.bind(game);
+    game.initWorld = function() {
+        try {
+            log('initWorld called');
+            origInit();
+            log('initWorld OK');
+        } catch(e) {
+            log('INITWORLD ERROR: ' + e.message);
+            log((e.stack||'').split('\n').slice(0,8).join('\n'));
+        }
+    };
+    game.start();
+    log('start() called');
+    setTimeout(() => log('10s: frames=' + loopCount + ', world=' + (game.world?'yes':'no')), 10000);
+} catch(e) {
+    log('FATAL: ' + e.message + '\n' + (e.stack||'').split('\n').slice(0,8).join('\n'));
+}
+</script>
+</body>
+</html>
