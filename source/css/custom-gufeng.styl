@@ -327,10 +327,15 @@ button.btn-primary:hover {
   color: #fff !important;
   text-shadow: 0 1px 6px rgba(0,0,0,.6);
 }
-/* 内页页眉背景：四周各留 20px，不再顶满屏幕 */
-#page-header:not(.full_page) {
+/* 内页页眉：四周各留 20px，圆角装裱，与正文对齐（背景 fixed 与 body 无缝衔接） */
+#page-header:not(.full_page):not([style*="background-image"]) {
   width: calc(100% - 40px);
   margin: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: url(/images/bg.webp) center center / cover no-repeat fixed !important;
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 4px 24px rgba(60,45,30,.18);
 }
 /* 主内容区：左右各留 20px，与页眉对齐 */
 #content-inner.layout {
