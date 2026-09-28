@@ -10,7 +10,6 @@ nav:
 menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
-  分类: /categories/ || fas fa-folder-open
   说说: /shuoshuo/ || fas fa-comment-dots
   项目: /projects/ || fas fa-code-branch
   音乐: /music/ || fas fa-music
