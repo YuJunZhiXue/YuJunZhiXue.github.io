@@ -61,6 +61,7 @@ inject:
     - <link rel="stylesheet" href="/fonts/noto-sans-sc-400.css">
     - <link rel="stylesheet" href="/css/custom-gufeng.css?v=20260927c">
     - <link rel="stylesheet" href="/css/custom-atmosphere.css?v=20260927b">
+    - <link rel="preconnect" href="https://v1.hitokoto.cn">
     - <link rel="stylesheet" href="/css/custom-aside.css?v=20260927c">
     - <link rel="stylesheet" href="/css/custom-post.css?v=20260927b">
     - <link rel="stylesheet" href="/css/custom-home.css?v=20260927c">
@@ -71,7 +72,7 @@ inject:
     - <script src="/fonts/aplayer-APlayer.min.js"></script>
     - <script src="/fonts/meting-Meting.min.js"></script>
     - <script src="/js/custom-atmosphere.js"></script>
-    - <script src="/js/custom-aside.js?v=20260927a"></script>
+    - <script src="/js/custom-aside.js?v=20260927b"></script>
     - <script src="/js/custom-post.js"></script>
     - <script src="/js/custom-home.js"></script>
     - <script src="/js/icon-beautify.js"></script>

@@ -212,44 +212,82 @@
   }
 
   /* ===== 6. 一言 ===== */
-  function initYiyan() {
-    var el = document.getElementById("yiyan-card");
-    if (!el) return;
+  // 一言 API · 网易云热评分类（8 秒超时，超时则用本地兜底）
+  function fetchYiyanQuote() {
+    function pickFallback() {
+      var fallback = [
+        { t: "总会有人，山高路远，替你而来。", f: "—— 网易云热评" },
+        { t: "愿你所有的不安，都是虚惊一场。", f: "—— 网易云热评" },
+        { t: "所有不合时宜的相遇，都遗憾得让人心疼。", f: "—— 网易云热评" },
+        { t: "后来我终于学会了如何去爱，可惜你早已远去，消失在人海。", f: "—— 网易云《后来》热评" }
+      ];
+      return fallback[Math.floor(Math.random() * fallback.length)];
+    }
+    return new Promise(function (resolve) {
+      var done = false;
+      function finish(q) { if (!done) { done = true; resolve(q); } }
+      var timer = setTimeout(function () { finish(pickFallback()); }, 8000);
+      try {
+        fetch("https://v1.hitokoto.cn/?c=j&encode=json")
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            clearTimeout(timer);
+            if (data && data.hitokoto) {
+              var who = data.from_who ? data.from_who + " · " : "";
+              finish({ t: data.hitokoto, f: "—— " + who + (data.from || "网易云热评") });
+            } else {
+              finish(pickFallback());
+            }
+          })
+          .catch(function () { clearTimeout(timer); finish(pickFallback()); });
+      } catch (e) { clearTimeout(timer); finish(pickFallback()); }
+    });
+  }
+
+  // 脚本在 body 尾部执行，不等 DOMContentLoaded，先把请求发出去
+  var yiyanPromise = fetchYiyanQuote();
+  var yiyanCacheKey = "yiyan-cache-v1";
+
+  function renderYiyan(el, q) {
     var textEl = el.querySelector('[data-yiyan="text"]');
     var fromEl = el.querySelector('[data-yiyan="from"]');
+    if (textEl) textEl.textContent = q.t;
+    if (fromEl) fromEl.textContent = q.f;
+  }
+
+  function bindYiyan(el) {
+    // 先画上次缓存的句子，秒开；网络结果回来后再更新
+    try {
+      var cached = localStorage.getItem(yiyanCacheKey);
+      if (cached) renderYiyan(el, JSON.parse(cached));
+    } catch (e) {}
+    yiyanPromise.then(function (q) {
+      renderYiyan(el, q);
+      try { localStorage.setItem(yiyanCacheKey, JSON.stringify(q)); } catch (e) {}
+    });
     var btn = el.querySelector(".yiyan-refresh");
+    if (btn) btn.addEventListener("click", function () {
+      var textEl = el.querySelector('[data-yiyan="text"]');
+      if (textEl) textEl.textContent = "载入中…";
+      fetchYiyanQuote().then(function (q) {
+        renderYiyan(el, q);
+        try { localStorage.setItem(yiyanCacheKey, JSON.stringify(q)); } catch (e) {}
+      });
+    });
+  }
 
-    function loadYiyan() {
-      // 一言 API · 网易云热评分类（8 秒超时，超时则用本地兜底）
-      var ctrl = ("AbortController" in window) ? new AbortController() : null;
-      var timer = null;
-      if (ctrl) timer = setTimeout(function () { ctrl.abort(); }, 8000);
-      fetch("https://v1.hitokoto.cn/?c=j&encode=json", ctrl ? { signal: ctrl.signal } : {})
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          if (timer) clearTimeout(timer);
-          if (data && data.hitokoto) {
-            textEl.textContent = data.hitokoto;
-            var who = data.from_who ? data.from_who + " · " : "";
-            fromEl.textContent = "—— " + who + (data.from || "网易云热评");
-          }
-        })
-        .catch(function () {
-          // 兜底本地热评
-          var fallback = [
-            { t: "总会有人，山高路远，替你而来。", f: "—— 网易云热评" },
-            { t: "愿你所有的不安，都是虚惊一场。", f: "—— 网易云热评" },
-            { t: "所有不合时宜的相遇，都遗憾得让人心疼。", f: "—— 网易云热评" },
-            { t: "后来我终于学会了如何去爱，可惜你早已远去，消失在人海。", f: "—— 网易云《后来》热评" },
-          ];
-          var pick = fallback[Math.floor(Math.random() * fallback.length)];
-          textEl.textContent = pick.t;
-          fromEl.textContent = pick.f;
-        });
-    }
-
-    loadYiyan();
-    if (btn) btn.addEventListener("click", loadYiyan);
+  function initYiyan() {
+    var el = document.getElementById("yiyan-card");
+    if (el) { bindYiyan(el); return; }
+    // 卡片由后面的注入脚本插入，轮询等它出现
+    var tries = 0;
+    var iv = setInterval(function () {
+      var node = document.getElementById("yiyan-card");
+      if (node || ++tries > 25) {
+        clearInterval(iv);
+        if (node) bindYiyan(node);
+      }
+    }, 200);
   }
 
   /* ===== 启动 ===== */
