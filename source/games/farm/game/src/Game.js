@@ -92,21 +92,32 @@ export default class Game {
             if (this.assetsLoaded >= this.totalAssets) this.initWorld();
         };
         const onLoad = () => checkLoad();
+        const onErr = (name, path) => (e) => {
+            console.error(`Asset failed: ${name} (${path})`, e);
+            checkLoad(); // count failures too so the game can start via fallback
+        };
 
         this.assets.player.onload = onLoad;
+        this.assets.player.onerror = onErr('player', 'assets/16x16/Sprites/$farmer.png');
         this.assets.player.src = 'assets/16x16/Sprites/$farmer.png';
         this.assets.house.onload = onLoad;
+        this.assets.house.onerror = onErr('house', 'buildings');
         this.assets.house.src = 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_buildings.png';
         this.assets.details.onload = onLoad;
+        this.assets.details.onerror = onErr('details', 'details');
         this.assets.details.src = 'assets/16x16/Tilesets_Compact/vectoraith_tileset_farmingsims_details.png';
-        
+
         this.assets.babyChicken.onload = onLoad;
+        this.assets.babyChicken.onerror = onErr('babyChicken', 'chick');
         this.assets.babyChicken.src = 'assets/16x16/Sprites/$chicken_chick.png';
         this.assets.chicken.onload = onLoad;
+        this.assets.chicken.onerror = onErr('chicken', 'hen');
         this.assets.chicken.src = 'assets/16x16/Sprites/$chicken_hen.png';
         this.assets.cow.onload = onLoad;
+        this.assets.cow.onerror = onErr('cow', 'cow');
         this.assets.cow.src = 'assets/16x16/Sprites/$cow_brown.png';
         this.assets.chest.onload = onLoad;
+        this.assets.chest.onerror = onErr('chest', 'chest');
         this.assets.chest.src = 'assets/Objects/chest.png';
 
         this.tilesetManager.loadTileset('spring', 'assets/16x16/Tilesets_Modular/vectoraith_tileset_farmingsims_terrain_spring_expanded.png', { 
