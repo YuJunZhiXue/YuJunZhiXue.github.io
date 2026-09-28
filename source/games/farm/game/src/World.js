@@ -427,7 +427,7 @@ export default class World {
             }
         }
         for (const obj of this.staticObjects) {
-            if (obj.image && obj.image.complete) {
+            if (obj.image && obj.image.complete && obj.image.naturalWidth > 0) {
                 ctx.drawImage(obj.image, obj.sx, obj.sy, obj.sw, obj.sh, obj.x, obj.y, obj.dw, obj.dh);
             }
         }
