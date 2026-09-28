@@ -14,6 +14,7 @@ menu:
   项目: /projects/ || fas fa-code-branch
   音乐: /music/ || fas fa-music
   工具箱: /tools/ || fas fa-toolbox
+  小游戏: /games/ || fas fa-gamepad
   人生重开: /relife/ || fas fa-dice
 
 # ==================== 配色（古风·水墨朱砂）====================
@@ -64,7 +65,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom-pages.css?v=20260927d">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
     - <script src="/fonts/pace-js.min.js"></script>
-    - <style>/* 各页面卡片网格左右留白 */#content-inner.layout{padding-left:20px!important;padding-right:20px!important}.project-grid,.tools-grid,.shuoshuo-list,.gallery-wall,.message-board,.media-list,.home-category-wall{padding-left:20px!important;padding-right:20px!important}#page-header:not(.full_page):not([style*="background-image"]){width:calc(100% - 40px)!important;margin:20px auto!important;border-radius:16px;overflow:hidden;background:url(/images/bg.webp) center center/cover no-repeat fixed!important;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 24px rgba(60,45,30,.18)}</style>
+    - <style>/* 各页面卡片网格左右留白 */#content-inner.layout{padding-left:20px!important;padding-right:20px!important}.project-grid,.tools-grid,.games-grid,.shuoshuo-list,.gallery-wall,.message-board,.media-list,.home-category-wall{padding-left:20px!important;padding-right:20px!important}#page-header:not(.full_page):not([style*="background-image"]){width:calc(100% - 40px)!important;margin:20px auto!important;border-radius:16px;overflow:hidden;background:url(/images/bg.webp) center center/cover no-repeat fixed!important;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 24px rgba(60,45,30,.18)}</style>
   bottom:
     - <script src="/fonts/aplayer-APlayer.min.js"></script>
     - <script src="/fonts/meting-Meting.min.js"></script>
