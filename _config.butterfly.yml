@@ -13,6 +13,8 @@ menu:
   说说: /shuoshuo/ || fas fa-comment-dots
   项目: /projects/ || fas fa-code-branch
   音乐: /music/ || fas fa-music
+  工具箱: /tools/ || fas fa-toolbox
+  人生重开: /relife/ || fas fa-dice
 
 # ==================== 配色（古风·水墨朱砂）====================
 theme_color:
@@ -59,7 +61,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom-aside.css?v=20260927c">
     - <link rel="stylesheet" href="/css/custom-post.css?v=20260927b">
     - <link rel="stylesheet" href="/css/custom-home.css?v=20260927c">
-    - <link rel="stylesheet" href="/css/custom-pages.css?v=20260927c">
+    - <link rel="stylesheet" href="/css/custom-pages.css?v=20260927d">
     - <link rel="stylesheet" href="/fonts/aplayer-APlayer.min.css">
     - <script src="/fonts/pace-js.min.js"></script>
   bottom:

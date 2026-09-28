@@ -403,3 +403,90 @@
     height: 130px;
   }
 }
+
+/* ===== 6. 工具箱 ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.2rem;
+  padding: 1rem 0 3rem;
+}
+.tool-card {
+  background: var(--paper);
+  border: 1px solid rgba(90, 74, 58, .16);
+  border-top: 3px solid #a8351f;
+  border-radius: .45rem;
+  box-shadow: 2px 4px 14px rgba(60, 45, 30, .07);
+  padding: 1.1rem 1.2rem 1.2rem;
+}
+.tool-card h3 {
+  margin: 0 0 .8rem;
+  font-size: 1.05rem;
+  color: #a8351f;
+  border-bottom: 1px dashed rgba(168, 53, 31, .3);
+  padding-bottom: .5rem;
+}
+.tool-card input, .tool-card textarea, .tool-card select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: .6rem;
+  padding: .5rem .6rem;
+  border: 1px solid rgba(90, 74, 58, .3);
+  border-radius: .3rem;
+  background: rgba(255, 255, 255, .6);
+  font-size: .9rem;
+  font-family: inherit;
+  color: inherit;
+}
+.tool-card textarea { resize: vertical; }
+.tool-row {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-bottom: .6rem;
+  align-items: center;
+}
+.tool-row label { font-size: .85rem; display: flex; align-items: center; gap: .25rem; }
+.tool-row label input { width: auto; margin: 0; }
+.tool-checks label input { width: auto; }
+#pw-len { width: 4.5rem; }
+.tool-card button {
+  padding: .45rem 1rem;
+  border: 1px solid #a8351f;
+  border-radius: .3rem;
+  background: transparent;
+  color: #a8351f;
+  cursor: pointer;
+  font-size: .85rem;
+  transition: all .2s;
+}
+.tool-card button:hover { background: #a8351f; color: #fff; }
+.tool-out {
+  min-height: 1.2rem;
+  padding: .6rem .7rem;
+  background: rgba(90, 74, 58, .06);
+  border-radius: .3rem;
+  font-size: .85rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: .5rem;
+}
+.tool-out:empty { display: none; }
+.tool-out button { flex-shrink: 0; padding: .2rem .6rem; font-size: .75rem; }
+
+/* ===== 7. 人生重开 ===== */
+.relife-wrap {
+  padding: 1rem 0 3rem;
+}
+.relife-wrap iframe {
+  width: 100%;
+  height: 85vh;
+  min-height: 600px;
+  border: 2px solid rgba(168, 53, 31, .4);
+  border-radius: .5rem;
+  box-shadow: 2px 4px 18px rgba(60, 45, 30, .12);
+  background: #fff;
+}
