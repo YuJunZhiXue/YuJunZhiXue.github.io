@@ -1,7 +1,6 @@
 ---
 title: 音乐
 date: 2024-01-01 00:00:00
-top_img: /images/legacy.png
 ---
 
 <div id="music-player" style="max-width:800px;margin:0 auto;padding:20px 0">

@@ -34,4 +34,3 @@ comments: true
 
 </div>
 
-> 说说要更新，直接编辑这个页面（`source/shuoshuo/index.md`）加一段 `.ss-item` 就行。
