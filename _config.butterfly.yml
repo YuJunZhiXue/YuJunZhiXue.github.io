@@ -99,22 +99,16 @@ footer_img: false
 # 全站背景图（仿 onektas.top，fixed+cover）
 background: /images/bg.webp
 
-# 封面图池（仅文章无封面时兜底，古风水墨意境）
+# 封面图池（文章无封面时兜底）：动漫随机图 API，每个接口背后都是海量图库，
+# 每次请求返回不同图片，不再是几张本地图轮询（已验证可用）
 cover:
   index_enable: true
   aside_enable: true
   archives_enable: true
   default_cover:
-    - /images/stock/mountain1.jpg
-    - /images/stock/mist1.jpg
-    - /images/stock/ink1.jpg
-    - /images/stock/minimal1.jpg
-    - /images/stock/sea1.jpg
-    - /images/stock/sky1.jpg
-    - /images/stock/paper1.jpg
-    - /images/stock/bamboo1.jpg
-    - /images/stock/forest1.jpg
-    - /images/stock/dark1.jpg
+    - https://www.dmoe.cc/random.php
+    - https://t.mwm.moe/pc
+    - https://moe.jitsu.top/img/?sort=pc
 
 error_img:
   flink: /images/avstar.jpg
