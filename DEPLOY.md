@@ -146,6 +146,25 @@ theme: butterfly
 
 查看构建状态：仓库页 → Actions 标签页。构建失败会在那里显示红色叉和日志。
 
+## 缓存破坏（cache-bust，自动）
+
+Cloudflare Pages 对 `/css/*`、`/js/*`、`/images/*`、`/fonts/*` 下发了
+`Cache-Control: public, max-age=31536000, immutable`（见 `scripts/generator-headers.js`
+生成的 `_headers`），以前每次改样式都要手动给 JS/CSS 加 `?v=` 才能让访客看到最新版。
+
+现在构建流程自动处理：`bin/cache-bust.js` 在 `hexo g` 之后跑，遍历 `public/`，
+给 HTML/CSS/JS 引用的本地静态资源追加内容哈希（`?v=xxxxxxxx`，md5 前 8 位）。
+文件内容一改哈希就变，CDN/浏览器自动拉新版；内容没变哈希不变，照样命中长缓存。
+
+- 接入点：`.github/workflows/deploy.yml` 的构建步骤
+  `npx hexo clean && npx hexo g && node bin/cache-bust.js`，
+  本地 `npm run build` 也是同一条链。
+- 幂等：重复执行结果不变；已有 `?v=` 会被去掉重算，不会叠加。
+- 只处理本地路径，CDN 外链、`data:` 不动；目标文件不存在时保持原样。
+- 注意：不要做成 Hexo `after_generate` filter——`hexo g` 的顺序是
+  `load()`（触发 filter）→ `firstGenerate()` 落盘，filter 的改动会被落盘覆盖；
+  也不要放 `scripts/` 目录（Hexo 会当插件加载执行）。
+
 ## 已知坑点（重要）
 
 1. **文章日期会早一天**：`permalink: :year/:month/:day/:title/` 用的是文章 `date`。`timezone: Asia/Shanghai` 时区下，Hexo 内部按 UTC 计算永久链接日期，`2020-09-07 00:00:00`（北京时间）= `2020-09-06 16:00`（UTC），所以线上链接是 `/2020/09/06/`。**访问文章请从首页/归档页点链接，不要手拼日期**。

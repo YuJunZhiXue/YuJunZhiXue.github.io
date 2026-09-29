@@ -42,7 +42,7 @@ jobs:
         run: npm install --no-audit --no-fund
 
       - name: 生成静态页面
-        run: npx hexo clean && npx hexo g
+        run: npx hexo clean && npx hexo g && node bin/cache-bust.js
 
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
