@@ -389,14 +389,27 @@ body #post .tag_share .social-share .social-share-icon {
 [data-theme="dark"] body #post .tag_share .social-share .social-share-icon {
   background: #121212;
 }
+/* 悬停时恢复品牌色底 + 白色图标（特异性必须盖过上面的实底规则） */
+body #post .tag_share .social-share .social-share-icon:hover {
+  background: #666;
+  border-color: #666;
+  color: #fff;
+}
+body #post .tag_share .social-share .social-share-icon.icon-weibo:hover { background: #ff763b; border-color: #ff763b; }
+body #post .tag_share .social-share .social-share-icon.icon-qq:hover { background: #56b6e7; border-color: #56b6e7; }
+body #post .tag_share .social-share .social-share-icon.icon-wechat:hover { background: #7bc549; border-color: #7bc549; }
+body #post .tag_share .social-share .social-share-icon.icon-twitter:hover { background: #1da1f2; border-color: #1da1f2; }
+body #post .tag_share .social-share .social-share-icon.icon-facebook:hover { background: #44619d; border-color: #44619d; }
 
 /* ===== 11. 打赏弹窗：虚拟币地址卡片 ===== */
 .post-reward .reward-all.crypto-list {
   display: flex;
   flex-direction: column;
   gap: .55rem;
+  width: fit-content;
   min-width: 300px;
   max-width: 360px;
+  margin: 0 auto;
   padding: 16px 14px;
   text-align: left;
 }
