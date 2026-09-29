@@ -208,6 +208,61 @@
     update();
   }
 
+  /* ===== 8. 打赏弹窗：虚拟币地址（替换微信/支付宝二维码）===== */
+  function initCryptoReward() {
+    var list = document.querySelector(".post-reward .reward-all");
+    if (!list || list.dataset.cryptoDone) return;
+    var coins = [
+      { name: "USDT (TRC20)", addr: "TV5ajPkRD8RH623Dx9mqvYZVNN8nPGRKid" },
+      { name: "Solana", addr: "6x16GhRgLVpKFFXaU1seKNdx2rypspSJTL4dbpt6Xpwk" },
+      { name: "Ethereum", addr: "0xB68BD60C0e8c519513B7DF9bB147696815423B3E" },
+      { name: "Bitcoin", addr: "bc1qu70yxkrtwnymt8ryluz9x8y8hqzune5340npht" }
+    ];
+    list.classList.add("crypto-list");
+    list.innerHTML = coins.map(function (c) {
+      return '<div class="crypto-item">' +
+        '<div class="crypto-name">' + c.name + "</div>" +
+        '<div class="crypto-addr-row">' +
+        '<div class="crypto-addr">' + c.addr + "</div>" +
+        '<button type="button" class="crypto-copy" data-addr="' + c.addr + '">复制</button>' +
+        "</div></div>";
+    }).join("");
+    list.dataset.cryptoDone = "1";
+
+    function fallbackCopy(text) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (err) {}
+      document.body.removeChild(ta);
+    }
+
+    list.addEventListener("click", function (e) {
+      var btn = e.target.closest(".crypto-copy");
+      if (!btn) return;
+      var done = function () {
+        btn.textContent = "已复制";
+        btn.classList.add("copied");
+        setTimeout(function () {
+          btn.textContent = "复制";
+          btn.classList.remove("copied");
+        }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(btn.dataset.addr).then(done, function () {
+          fallbackCopy(btn.dataset.addr);
+          done();
+        });
+      } else {
+        fallbackCopy(btn.dataset.addr);
+        done();
+      }
+    });
+  }
+
   /* ===== 启动 ===== */
   document.addEventListener("DOMContentLoaded", function () {
     initReadProgress();
@@ -217,5 +272,6 @@
     initMobileToolbar();
     initImageViewer();
     initTocHighlight();
+    initCryptoReward();
   });
 })();
