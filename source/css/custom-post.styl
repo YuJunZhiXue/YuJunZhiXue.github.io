@@ -327,22 +327,35 @@ figure.highlight:hover .copy-btn {
   background: var(--theme-color);
 }
 
-/* ===== 7. 文章正文外边距：内容不再贴着卡片边缘 ===== */
+/* ===== 7. 阅读布局：正文收窄为舒适行长，段落留呼吸感 ===== */
 #article-container {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1.2rem 1.6rem;
+}
+#article-container p {
+  margin-bottom: 1.1em;
+}
+#article-container li {
+  margin-bottom: .4em;
 }
 @media (max-width: 768px) {
   #article-container {
+    max-width: none;
     padding: .9rem 1rem;
   }
 }
 
-/* ===== 8. 版权信息区：实底背景，在动漫背景图上也能看清 ===== */
-.post-copyright {
-  background: var(--card-bg);
+/* ===== 8. 版权信息区：不透明实底，背景图上清晰可读 ===== */
+#post .post-copyright {
+  background: #ffffff;
+  border-color: rgba(73, 177, 245, .25);
   padding: 1rem 1.25rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
 }
-[data-theme="dark"] .post-copyright {
+[data-theme="dark"] #post .post-copyright {
+  background: #121212;
+  border-color: rgba(107, 192, 247, .25);
   box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
 }
