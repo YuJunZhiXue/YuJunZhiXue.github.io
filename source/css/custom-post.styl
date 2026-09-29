@@ -326,3 +326,23 @@ figure.highlight:hover .copy-btn {
   border-radius: 2px;
   background: var(--theme-color);
 }
+
+/* ===== 7. 文章正文外边距：内容不再贴着卡片边缘 ===== */
+#article-container {
+  padding: 1.2rem 1.6rem;
+}
+@media (max-width: 768px) {
+  #article-container {
+    padding: .9rem 1rem;
+  }
+}
+
+/* ===== 8. 版权信息区：实底背景，在动漫背景图上也能看清 ===== */
+.post-copyright {
+  background: var(--card-bg);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+[data-theme="dark"] .post-copyright {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
+}
