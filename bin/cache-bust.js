@@ -146,6 +146,8 @@ const processHtml = (file) => {
   });
   // <img src> / <source src>
   text = text.replace(/(<(?:img|source)\b[^>]*?\ssrc\s*=\s*)(['"])([^'"]+)\2/gi, attrRepl);
+  // 懒加载主题把真实图片 URL 放在 data-lazy-src / data-src 里（Butterfly 等），同样追加哈希
+  text = text.replace(/(<(?:img|source|div|a|span)\b[^>]*?\sdata-(?:lazy-)?src\s*=\s*)(['"])([^'"]+)\2/gi, attrRepl);
   if (changed) fs.writeFileSync(file, text);
   return changed;
 };
