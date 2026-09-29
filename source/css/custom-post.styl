@@ -359,3 +359,100 @@ figure.highlight:hover .copy-btn {
   border-color: rgba(107, 192, 247, .25);
   box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
 }
+
+/* ===== 9. 标签 pills：实底，背景图上清晰可读 ===== */
+#post .tag_share .post-meta__tags {
+  background: #ffffff;
+}
+[data-theme="dark"] #post .tag_share .post-meta__tags {
+  background: #121212;
+}
+
+/* ===== 10. 分享图标：字体本地化 =====
+ * sharejs 的 iconfont 走 jsdelivr，在部分网络下字体加载失败导致图标变方框。
+ * 字体已下载到 /fonts/sharejs/，用更高特异性的选择器强制使用本地字体；
+ * 图标圆圈加实底，背景图上清晰可读。 */
+@font-face {
+  font-family: "share-local-iconfont";
+  src: url("/fonts/sharejs/iconfont.woff2") format("woff2"),
+       url("/fonts/sharejs/iconfont.woff") format("woff"),
+       url("/fonts/sharejs/iconfont.ttf") format("truetype");
+  font-display: swap;
+}
+body #post .tag_share .social-share,
+body #post .tag_share .social-share * {
+  font-family: "share-local-iconfont" !important;
+}
+body #post .tag_share .social-share .social-share-icon {
+  background: #ffffff;
+}
+[data-theme="dark"] body #post .tag_share .social-share .social-share-icon {
+  background: #121212;
+}
+
+/* ===== 11. 打赏弹窗：虚拟币地址卡片 ===== */
+.post-reward .reward-all.crypto-list {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  min-width: 300px;
+  max-width: 360px;
+  padding: 16px 14px;
+  text-align: left;
+}
+.crypto-item {
+  border: 1px solid rgba(73, 177, 245, .18);
+  border-radius: .6rem;
+  padding: .55rem .7rem;
+  background: rgba(73, 177, 245, .04);
+}
+.crypto-item .crypto-name {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--theme-color);
+  margin-bottom: .25rem;
+}
+.crypto-item .crypto-addr-row {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.crypto-item .crypto-addr {
+  flex: 1;
+  min-width: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem;
+  word-break: break-all;
+  color: var(--font-color);
+  opacity: .85;
+  user-select: all;
+}
+.crypto-item .crypto-copy {
+  flex: none;
+  padding: .25rem .7rem;
+  font-size: .72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(73, 177, 245, .4);
+  background: transparent;
+  color: var(--theme-color);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .2s;
+}
+.crypto-item .crypto-copy:hover {
+  background: rgba(73, 177, 245, .1);
+}
+.crypto-item .crypto-copy.copied {
+  border-color: #5a9e6f;
+  color: #5a9e6f;
+}
+[data-theme="dark"] .crypto-item {
+  border-color: rgba(107, 192, 247, .2);
+  background: rgba(107, 192, 247, .05);
+}
+[data-theme="dark"] .crypto-item .crypto-copy {
+  border-color: rgba(107, 192, 247, .4);
+}
+[data-theme="dark"] .crypto-item .crypto-copy:hover {
+  background: rgba(107, 192, 247, .1);
+}
