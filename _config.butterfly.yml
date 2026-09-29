@@ -109,6 +109,7 @@ cover:
     - https://www.dmoe.cc/random.php
     - https://t.mwm.moe/pc
     - https://moe.jitsu.top/img/?sort=pc
+    - https://api.paugram.com/wallpaper/
 
 error_img:
   flink: /images/avstar.jpg
