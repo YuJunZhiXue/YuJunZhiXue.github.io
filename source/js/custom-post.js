@@ -188,9 +188,12 @@
     var headings = [];
     links.forEach(function (link) {
       var id = link.getAttribute("href");
-      if (id && id.startsWith("#")) {
-        var h = document.querySelector(id);
-        if (h) headings.push({ el: h, link: link });
+      if (id && id.charAt(0) === "#") {
+        try {
+          // 中文标题的锚点是 URL 编码的（如 #%E4%B8%80），不能直接 querySelector
+          var h = document.getElementById(decodeURIComponent(id.slice(1)));
+          if (h) headings.push({ el: h, link: link });
+        } catch (err) { /* 非法锚点跳过 */ }
       }
     });
     if (!headings.length) return;
@@ -263,15 +266,12 @@
     });
   }
 
-  /* ===== 启动 ===== */
+  /* ===== 启动：每个模块独立 try/catch，一个挂了不影响其他 ===== */
   document.addEventListener("DOMContentLoaded", function () {
-    initReadProgress();
-    initLike();
-    initPostNav();
-    initCodeBlocks();
-    initMobileToolbar();
-    initImageViewer();
-    initTocHighlight();
-    initCryptoReward();
+    [initReadProgress, initLike, initPostNav, initCodeBlocks,
+     initMobileToolbar, initImageViewer, initTocHighlight, initCryptoReward]
+      .forEach(function (fn) {
+        try { fn(); } catch (err) { /* 单个模块失败不阻断其他 */ }
+      });
   });
 })();
